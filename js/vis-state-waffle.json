@@ -1,0 +1,50 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "data": {
+    "url": "../H100-2024-PosterList.json"
+  },
+  "transform": [
+    {
+      "window": [{"op": "count", "as": "StateTotal"}],
+      "groupby": ["state"]
+    },
+    {
+      "window": [{"op": "row_number", "as": "id"}],
+      "sort": [{"field": "StateTotal", "order": "descending"}, {"field": "state"}]
+    },
+    {
+      "calculate": "floor((datum.id - 1) / 10)", "as": "row"
+    },
+    {
+      "calculate": "(datum.id - 1) % 10", "as": "col"
+    }
+  ],
+  "mark": {
+    "type": "rect", 
+    "cornerRadius": 4,
+    "opacity": 0.9, 
+    "stroke": "#f4f4f4", 
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {"field": "col", "type": "ordinal", "axis": null},
+    "y": {"field": "row", "type": "ordinal", "axis": null},
+    "color": {
+      "field": "state", 
+      "type": "nominal", 
+      "scale": {"scheme": "yelloworangebrown"},
+      "legend": {"title": null, "labelFont": "Montserrat", "orient": "right"}
+    },
+    "tooltip": [
+      {"field": "state", "type": "nominal", "title": "State"},
+      {"field": "beer", "type": "nominal", "title": "Beer"},
+      {"field": "brewery", "type": "nominal", "title": "Brewery"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Montserrat"
+  }
+}

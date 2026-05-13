@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": "container",
+  "title": {
+    "text": "Age vs. Style Matrix",
+    "font": "Oswald",
+    "fontSize": 18
+  },
+  "data": {
+    "url": "../ndshs_alcohol_preferences_2022_2023.json"
+  },
+  "transform": [
+    {"filter": "datum.Gender == 'Persons'"},
+    {
+      "fold": [
+        "Cask wine", "Bottled wine", "Regular strength beer", "Mid strength beer",
+        "Low alcohol beer", "Home-brewed beer", "Pre-mixed spirits",
+        "Bottled spirits and liqueurs", "Cider", "Fortified wine",
+        "Other pre-mixed drinks", "Other"
+      ],
+      "as": ["RawType", "Percentage"]
+    },
+    {
+      "calculate": "indexof(['Regular strength beer', 'Bottled wine', 'Pre-mixed spirits', 'Mid strength beer', 'Cider'], datum.RawType) >= 0 ? datum.RawType : 'Other'",
+      "as": "Alcohol Type"
+    },
+    {
+      "aggregate": [{"op": "sum", "field": "Percentage", "as": "Total_Percentage"}],
+      "groupby": ["Age Group", "Alcohol Type"]
+    },
+    {"filter": "datum['Alcohol Type'] != 'Other'"}
+  ],
+  "mark": {"type": "rect", "tooltip": true},
+  "encoding": {
+    "x": {
+      "field": "Age Group",
+      "type": "nominal",
+      "axis": {"labelFont": "Montserrat", "title": null, "labelAngle": -45}
+    },
+    "y": {
+      "field": "Alcohol Type",
+      "type": "nominal",
+      "axis": {"labelFont": "Montserrat", "title": null, "labelLimit": 150}
+    },
+    "color": {
+      "field": "Total_Percentage",
+      "type": "quantitative",
+      "scale": {"scheme": "blues"},
+      "legend": {"title": "%", "labelFont": "Montserrat", "orient": "bottom"}
+    },
+    "tooltip": [
+      {"field": "Age Group", "type": "nominal"},
+      {"field": "Alcohol Type", "type": "nominal"},
+      {"field": "Total_Percentage", "type": "quantitative", "format": ".1f", "title": "Preference %"}
+    ]
+  },
+  "config": {"view": {"stroke": "transparent"}}
+}

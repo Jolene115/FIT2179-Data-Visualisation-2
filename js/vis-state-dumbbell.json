@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 350,
+  "title": {
+    "text": "Beers vs. Breweries by State",
+    "subtitle": "Are many beers coming from just a few breweries?",
+    "font": "Oswald",
+    "fontSize": 18,
+    "subtitleFont": "Montserrat",
+    "subtitleColor": "#64748B"
+  },
+  "data": {
+    "url": "../H100-2024-PosterList.json"
+  },
+  "transform": [
+    {
+      "aggregate": [
+        {"op": "count", "as": "Total Beers"},
+        {"op": "distinct", "field": "brewery", "as": "Unique Breweries"}
+      ],
+      "groupby": ["state"]
+    },
+    {
+      "fold": ["Total Beers", "Unique Breweries"],
+      "as": ["Metric", "Count"]
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": null,
+      "sort": {"field": "Count", "op": "max", "order": "descending"},
+      "axis": {
+        "labelFont": "Montserrat",
+        "labelFontSize": 12,
+        "grid": true,
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "x": {
+      "field": "Count",
+      "type": "quantitative",
+      "title": "Count",
+      "axis": {
+        "labelFont": "Montserrat", 
+        "titleFont": "Montserrat",
+        "grid": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "line", "color": "#CBD5E1", "strokeWidth": 4},
+      "encoding": {
+        "detail": {"field": "state", "type": "nominal"}
+      }
+    },
+    {
+      "mark": {"type": "circle", "opacity": 1, "size": 250},
+      "encoding": {
+        "color": {
+          "field": "Metric",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Total Beers", "Unique Breweries"],
+            "range": ["#E8A317", "#1A202C"]
+          },
+          "legend": {
+            "title": null,
+            "labelFont": "Montserrat",
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "Metric", "type": "nominal", "title": "Metric"},
+          {"field": "Count", "type": "quantitative", "title": "Count"}
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Montserrat"
+  }
+}

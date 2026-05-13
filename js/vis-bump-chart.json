@@ -1,0 +1,98 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 800,
+  "title": {
+    "text": "Consistency at the Top",
+    "subtitle": "Rank changes for the Top 20 Beers from 2023 to 2024",
+    "font": "Oswald",
+    "fontSize": 20,
+    "subtitleFont": "Montserrat",
+    "subtitleColor": "#64748B"
+  },
+  "data": {
+    "url": "../H100-2024-PosterList.json"
+  },
+  "transform": [
+    {"filter": "datum.rank <= 20"},
+    {
+      "calculate": "datum.rank", "as": "Rank_2024"
+    },
+    {
+      "calculate": "datum.status == '=' ? datum.rank : indexof(datum.status, 'Up ') == 0 ? datum.rank + toNumber(substring(datum.status, 3)) : indexof(datum.status, 'Down ') == 0 ? datum.rank - toNumber(substring(datum.status, 5)) : null",
+      "as": "Rank_2023"
+    },
+    {"filter": "datum.Rank_2023 != null"},
+    {
+      "fold": ["Rank_2023", "Rank_2024"],
+      "as": ["YearField", "PlotRank"]
+    },
+    {
+      "calculate": "datum.YearField == 'Rank_2023' ? '2023' : '2024'",
+      "as": "Year"
+    },
+    {
+      "calculate": "datum.Rank_2023 > datum.Rank_2024 ? 'Up' : datum.Rank_2023 < datum.Rank_2024 ? 'Down' : 'Same'",
+      "as": "Momentum"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "axis": {"labelFont": "Montserrat", "title": null, "labelPadding": 10, "labelFontSize": 14}
+    },
+    "y": {
+      "field": "PlotRank",
+      "type": "quantitative",
+      "scale": {"reverse": true},
+      "axis": {"labelFont": "Montserrat", "titleFont": "Montserrat", "title": "GABS Rank (1 is Best)", "grid": false}
+    },
+    "color": {
+      "field": "Momentum",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Up", "Same", "Down"],
+        "range": ["#F59E0B", "#9CA3AF", "#EF4444"]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "beer", "type": "nominal", "title": "Beer"},
+      {"field": "brewery", "type": "nominal", "title": "Brewery"},
+      {"field": "Rank_2023", "type": "quantitative", "title": "2023 Rank"},
+      {"field": "Rank_2024", "type": "quantitative", "title": "2024 Rank"}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": {"filled": true, "size": 60, "opacity": 1},
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "detail": {"field": "beer", "type": "nominal"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.Year == '2024'"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "font": "Montserrat",
+        "fontWeight": "bold",
+        "fontSize": 11
+      },
+      "encoding": {
+        "text": {"field": "beer", "type": "nominal"},
+        "color": {"value": "#1F2937"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Montserrat"
+  }
+}

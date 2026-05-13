@@ -1,0 +1,86 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "title": {
+    "text": "The Generational Pivot",
+    "subtitle": "Flow of alcohol preferences across age cohorts",
+    "font": "Oswald",
+    "fontSize": 20,
+    "color": "#F9FAFB",
+    "subtitleColor": "#9CA3AF",
+    "subtitleFont": "Montserrat"
+  },
+  "background": "#1F2937",
+  "data": {
+    "url": "../ndshs_alcohol_preferences_2022_2023.json"
+  },
+  "transform": [
+    {"filter": "datum.Gender == 'Persons'"},
+    {
+      "fold": [
+        "Cask wine", "Bottled wine", "Regular strength beer", "Mid strength beer",
+        "Low alcohol beer", "Home-brewed beer", "Pre-mixed spirits",
+        "Bottled spirits and liqueurs", "Cider", "Fortified wine",
+        "Other pre-mixed drinks", "Other"
+      ],
+      "as": ["RawType", "Percentage"]
+    },
+    {
+      "calculate": "indexof(['Regular strength beer', 'Bottled wine', 'Pre-mixed spirits', 'Mid strength beer', 'Cider'], datum.RawType) >= 0 ? datum.RawType : 'Other'",
+      "as": "Alcohol Type"
+    },
+    {
+      "aggregate": [{"op": "sum", "field": "Percentage", "as": "Total_Percentage"}],
+      "groupby": ["Age Group", "Alcohol Type"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": "area",
+      "encoding": {
+        "x": {
+          "field": "Age Group",
+          "type": "nominal",
+          "axis": {"domain": false, "tickSize": 0, "labelFont": "Montserrat", "labelAngle": 0, "labelColor": "#9CA3AF", "title": null}
+        },
+        "y": {
+          "field": "Total_Percentage",
+          "type": "quantitative",
+          "stack": "normalize",
+          "axis": null
+        },
+        "color": {
+          "field": "Alcohol Type",
+          "type": "nominal",
+          "scale": {"scheme": "yelloworangebrown"},
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "Age Group", "type": "nominal"},
+          {"field": "Alcohol Type", "type": "nominal"},
+          {"field": "Total_Percentage", "type": "quantitative", "format": ".1f", "title": "Preference %"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum['Age Group'] == '18–24' && datum['Alcohol Type'] == 'Pre-mixed spirits'"}],
+      "mark": {"type": "text", "align": "center", "dy": -20, "font": "Oswald", "fontSize": 14, "color": "#FFFFFF"},
+      "encoding": {
+        "x": {"field": "Age Group", "type": "nominal"},
+        "y": {"datum": 0.8, "type": "quantitative"},
+        "text": {"value": "Pre-mixed Spirits dominate Youth"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum['Age Group'] == '50–59' && datum['Alcohol Type'] == 'Bottled wine'"}],
+      "mark": {"type": "text", "align": "center", "dy": 0, "font": "Oswald", "fontSize": 14, "color": "#FFFFFF"},
+      "encoding": {
+        "x": {"field": "Age Group", "type": "nominal"},
+        "y": {"datum": 0.3, "type": "quantitative"},
+        "text": {"value": "Wine overtakes in later years"}
+      }
+    }
+  ],
+  "config": {"view": {"stroke": "transparent"}}
+}

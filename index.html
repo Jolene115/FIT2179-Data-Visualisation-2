@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Australian Craft Beer Revolution</title>
+    
+    <!-- Pure.css for non-narrative layouts like the 3-column dash -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css">
+    
+    <!-- True Pudding Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Vega-Lite Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <img src="malt_sketch_three.png" alt="Malt Sketch" class="hero-image">
+        <h1>THE AUSTRALIAN CRAFT BEER REVOLUTION</h1>
+        <p class="byline">BY JING YI TEOH (JOLENE)</p>
+        
+        <p class="dek" style="margin-top: 4rem; max-width: 600px; margin-left: auto; margin-right: auto; text-align: left; font-size: 1.2rem; color: #444;">
+            An interactive analysis of the shifting palate from mass production to local diversity. Dive into the data of the GABS Hottest 100 to discover what truly drives Australia's modern drinking culture.
+        </p>
+    </header>
+
+    <main>
+        <!-- The 30/70 side-by-side HD Layout -->
+        <section class="graphic-bleed" style="display: flex; align-items: center; margin: 4rem auto;">
+            <div class="pure-g" style="width: 100%; align-items: center;">
+                <div class="pure-u-1 pure-u-md-1-3" style="padding-right: 2rem;">
+                    <h2>The National Palate</h2>
+                    <p><span class="dropcap">B</span>efore exploring the niche world of craft beer, we must understand the broader Australian context.</p>
+                    <p>The 'Beer Gap' is most evident in the <strong>18–24 cohort</strong>, where preference sits at just <strong>16.1%</strong>—nearly half that of the <strong>45–54 demographic</strong>. This isn't just a lack of interest; it's a pivot toward variety.</p>
+                    <p>This 'Generation Gap' represents the primary growth engine for the Craft Revolution: a demographic that rejects commercial staples in favor of the diverse, innovative flavor profiles found in independent breweries.</p>
+                </div>
+                <div class="pure-u-1 pure-u-md-2-3">
+                    <div id="vis-s1-bar" class="vis-container" style="width: 100%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Dark Mode Streamgraph -->
+        <figure class="graphic-bleed">
+            <div class="pure-g">
+                <div class="pure-u-1">
+                    <div id="vis-s1-stream" class="vis-container"></div>
+                </div>
+            </div>
+        </figure>
+
+        <section class="prose">
+            <h2>Mapping the Heartland</h2>
+            <p>The craft beer revolution isn't evenly distributed. Geographic analysis shows distinct hotspots of brewing excellence across the country. The density of breweries tells a story of urban hubs and regional craft pioneers.</p>
+        </section>
+
+        <!-- The bespoke Scrollytelling implementation -->
+        <section id="scrolly">
+            <!-- The scrolling text steps -->
+            <article class="scrolly-text">
+                <div class="step" data-step="['VIC', 'NSW']">
+                    <p><strong>Eastern Dominance.</strong> Victoria and NSW are the massive powerhouses in the Australian craft industry. Notice the dense clusters around Melbourne and Sydney.</p>
+                </div>
+                <div class="step" data-step="ALL">
+                    <p><strong>Quality Over Quantity.</strong> Some states have fewer breweries but produce a massive number of top 100 beers. It's not just about how many breweries exist, but their impact.</p>
+                </div>
+            </article>
+            
+            <!-- The fixed sticky graphic -->
+            <figure class="scrolly-figure">
+                <div id="vis-brewery-map" class="vis-container" style="height: 100%; width: 100%;"></div>
+            </figure>
+        </section>
+
+        <!-- Place dumbbell chart below scrolly block to prevent awkward alignment -->
+        <figure class="graphic-bleed" style="margin-top: 4rem;">
+            <div class="pure-g">
+                <div class="pure-u-1">
+                    <div id="vis-state-bar" class="vis-container" style="min-height: 400px;"></div>
+                </div>
+            </div>
+        </figure>
+
+        <section class="prose">
+            <h2>What Makes a "Hottest 100" Beer?</h2>
+            <p>Diving into the acclaimed GABS Hottest 100, we uncover the styles, strengths, and brewers that define the pinnacle of Australian craft brewing.</p>
+            <p>Pale Ales and IPAs completely dominate the landscape, showcasing Australia's distinct thirst for hoppy, aromatic profiles. The sheer volume of these styles demonstrates a clear market preference.</p>
+        </section>
+
+        <figure class="graphic-bleed">
+            <div class="pure-g">
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <div id="vis-style-treemap" class="vis-container"></div>
+                </div>
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <div id="vis-abv-scatter" class="vis-container"></div>
+                </div>
+                <div class="pure-u-1" style="margin-top: 2rem;">
+                    <div id="vis-style-state-heatmap" class="vis-container"></div>
+                </div>
+                <div class="pure-u-1" style="margin-top: 2rem;">
+                    <div id="vis-bump-chart" class="vis-container"></div>
+                </div>
+            </div>
+        </figure>
+
+        <section class="prose">
+            <div class="verdict-box">
+                <h2>The Final Verdict</h2>
+                <p>Synthesising the analysis of the Hottest 100 reveals the overall impact and a state-by-state breakdown.</p>
+                <p>Australia's palate is evolving. While national trends remain rooted in traditional wine and beer, the GABS 100 reveals a clear shift toward regional, independent diversity, driven by NSW and VIC. We are moving away from mass production toward a culture that values local innovation and "hazy" craft styles.</p>
+                <div class="pure-g" style="margin-top: 2rem;">
+                    <div class="pure-u-1 pure-u-md-1-2">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <h3 style="font-family: var(--font-sans); font-size: 24px; margin-bottom: 0;">Craft Beer Sentiment</h3>
+                            <p style="font-family: var(--font-ui); font-size: 14px; color: #64748B; margin-top: 0;">Net ranks gained or lost by beer style</p>
+                        </div>
+                        <div id="vis-diverging-sentiment" class="vis-container"></div>
+                    </div>
+                    <div class="pure-u-1 pure-u-md-1-2">
+                        <div style="text-align: center; margin-bottom: 1rem;">
+                            <h3 style="font-family: var(--font-sans); font-size: 24px; margin-bottom: 0;">State Proportions</h3>
+                            <p style="font-family: var(--font-ui); font-size: 14px; color: #64748B; margin-top: 0;">Breakdown of the 100 hottest beers by state</p>
+                        </div>
+                        <div id="vis-state-waffle" class="vis-container"></div>
+                    </div>
+                </div>
+                <p style="font-size: 0.9rem; color: #888; font-family: var(--font-ui); text-transform: uppercase; margin-top: 1rem;">Data Sources: AIHW (2022-2023) | GABS Hottest 100 (2024)</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Use a transparent background for all Vega-Lite charts to match the page
+        const opt = {
+            actions: false, 
+            renderer: 'svg',
+            config: {
+                background: 'transparent',
+                view: {stroke: 'transparent'}
+            }
+        };
+        
+        vegaEmbed('#vis-s1-bar', 'js/vis-s1-bar.json', opt).catch(console.error);
+        vegaEmbed('#vis-s1-stream', 'js/vis-s1-stream.json', opt).catch(console.error);
+        
+        // --- SCROLLYTELLING LOGIC ---
+        // 1. Capture the map view so we can send it signals
+        let mapView;
+        vegaEmbed('#vis-brewery-map', 'js/vis-brewery-map.json', opt).then(function(result) {
+            mapView = result.view;
+        }).catch(console.error);
+
+        vegaEmbed('#vis-state-bar', 'js/vis-state-dumbbell.json', opt).catch(console.error);
+        vegaEmbed('#vis-style-treemap', 'js/vis-style-lollipop.json', opt).catch(console.error);
+        vegaEmbed('#vis-abv-scatter', 'js/vis-style-boxplot.json', opt).catch(console.error);
+        vegaEmbed('#vis-style-state-heatmap', 'js/vis-style-state-heatmap.json', opt).catch(console.error);
+        vegaEmbed('#vis-bump-chart', 'js/vis-bump-chart.json', opt).catch(console.error);
+        vegaEmbed('#vis-diverging-sentiment', 'js/vis-diverging-sentiment.json', opt).catch(console.error);
+        vegaEmbed('#vis-state-waffle', 'js/vis-state-waffle.json', opt).catch(console.error);
+
+        // 2. Setup IntersectionObserver
+        const steps = document.querySelectorAll('.step');
+        
+        // Add subtle transition to steps
+        steps.forEach(step => {
+            step.style.opacity = 0.3; // Default faded out
+            step.style.transition = "opacity 0.5s ease-in-out, transform 0.5s ease-in-out";
+            step.style.transform = "translateY(20px)";
+        });
+
+        const handleStep = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const stepEl = entry.target;
+                    const stepDataRaw = stepEl.getAttribute('data-step');
+                    
+                    // Parse stepData safely
+                    let stepData = null;
+                    if (stepDataRaw && stepDataRaw !== 'ALL') {
+                        try {
+                            stepData = JSON.parse(stepDataRaw.replace(/'/g, '"'));
+                        } catch(e) {
+                            stepData = stepDataRaw;
+                        }
+                    }
+                    
+                    // Highlight the active text block
+                    steps.forEach(s => {
+                        s.style.opacity = 0.3;
+                        s.style.transform = "translateY(20px)";
+                    });
+                    stepEl.style.opacity = 1;
+                    stepEl.style.transform = "translateY(0)";
+                    
+                    // Trigger Vega-Lite dynamic update if view is ready
+                    if (mapView) {
+                        mapView.signal('highlightState', stepData).runAsync();
+                        console.log("Scrollytelling Step Activated:", stepData);
+                    }
+                }
+            });
+        };
+
+        // Trigger when the element reaches the center of the viewport
+        const scrollyObserver = new IntersectionObserver(handleStep, {
+            root: null,
+            rootMargin: '-40% 0px -40% 0px',
+            threshold: 0
+        });
+
+        steps.forEach(step => scrollyObserver.observe(step));
+    </script>
+</body>
+</html>

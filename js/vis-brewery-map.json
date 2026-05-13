@@ -1,0 +1,132 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 600,
+  "title": {
+    "text": "Brewery Activity and Hotspots",
+    "subtitle": "Number of Hottest 100 entries originating from each state",
+    "font": "Oswald",
+    "fontSize": 20,
+    "subtitleFont": "Montserrat",
+    "subtitleColor": "#64748B"
+  },
+  "background": "transparent",
+  "projection": {
+    "type": "mercator"
+  },
+  "params": [
+    {
+      "name": "highlightState",
+      "value": null
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "../australian_states.geojson",
+        "format": {"type": "json", "property": "features"}
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#E2E8F0",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1.5
+      }
+    },
+    {
+      "data": {
+        "url": "../H100-2024-PosterList.json"
+      },
+      "transform": [
+        {
+          "aggregate": [{"op": "count", "as": "BeerCount"}],
+          "groupby": ["state"]
+        },
+        {
+          "calculate": "datum.state === 'NSW' ? 151.2 : datum.state === 'VIC' ? 144.96 : datum.state === 'QLD' ? 153.02 : datum.state === 'SA' ? 138.6 : datum.state === 'WA' ? 115.86 : datum.state === 'TAS' ? 147.32 : datum.state === 'ACT' ? 149.13 : 130.84",
+          "as": "lon"
+        },
+        {
+          "calculate": "datum.state === 'NSW' ? -33.86 : datum.state === 'VIC' ? -37.81 : datum.state === 'QLD' ? -27.47 : datum.state === 'SA' ? -34.92 : datum.state === 'WA' ? -31.95 : datum.state === 'TAS' ? -42.88 : datum.state === 'ACT' ? -35.28 : -12.46",
+          "as": "lat"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "stroke": "#1A202C",
+        "strokeWidth": 1,
+        "transition": true
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "size": {
+          "field": "BeerCount",
+          "type": "quantitative",
+          "scale": {"range": [100, 2000]},
+          "legend": {"title": "Number of Top Beers"}
+        },
+        "color": {
+          "condition": {
+            "test": "highlightState != null && indexof(highlightState, datum.state) >= 0",
+            "value": "#D97706"
+          },
+          "value": "#E8A317"
+        },
+        "opacity": {
+          "condition": {
+            "test": "highlightState != null && indexof(highlightState, datum.state) < 0",
+            "value": 0.15
+          },
+          "value": 0.85
+        },
+        "tooltip": [
+          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "BeerCount", "type": "quantitative", "title": "Top Beers"}
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "../H100-2024-PosterList.json"
+      },
+      "transform": [
+        {
+          "aggregate": [{"op": "count", "as": "BeerCount"}],
+          "groupby": ["state"]
+        },
+        {
+          "calculate": "datum.state === 'NSW' ? 151.2 : datum.state === 'VIC' ? 144.96 : datum.state === 'QLD' ? 153.02 : datum.state === 'SA' ? 138.6 : datum.state === 'WA' ? 115.86 : datum.state === 'TAS' ? 147.32 : datum.state === 'ACT' ? 149.13 : 130.84",
+          "as": "lon"
+        },
+        {
+          "calculate": "datum.state === 'NSW' ? -33.86 : datum.state === 'VIC' ? -37.81 : datum.state === 'QLD' ? -27.47 : datum.state === 'SA' ? -34.92 : datum.state === 'WA' ? -31.95 : datum.state === 'TAS' ? -42.88 : datum.state === 'ACT' ? -35.28 : -12.46",
+          "as": "lat"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -25,
+        "font": "Montserrat",
+        "fontWeight": "bold",
+        "transition": true
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "state", "type": "nominal"},
+        "opacity": {
+          "condition": {
+            "test": "highlightState != null && indexof(highlightState, datum.state) < 0",
+            "value": 0.15
+          },
+          "value": 1
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Montserrat"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "title": {
+    "text": "The Generation Gap",
+    "subtitle": "Alcohol preference by age group",
+    "font": "Oswald",
+    "fontSize": 20,
+    "subtitleFont": "Montserrat",
+    "subtitleColor": "#64748B"
+  },
+  "data": {
+    "url": "../ndshs_alcohol_preferences_2022_2023.json"
+  },
+  "transform": [
+    {"filter": "datum.Gender == 'Persons'"},
+    {
+      "fold": [
+        "Regular strength beer", "Pre-mixed spirits", "Bottled wine"
+      ],
+      "as": ["Alcohol Type", "Percentage"]
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "Age Group",
+      "type": "nominal",
+      "axis": {"labelAngle": 0, "labelFont": "Montserrat", "title": null, "grid": false}
+    },
+    "y": {
+      "field": "Percentage",
+      "type": "quantitative",
+      "axis": {"title": "Preference (%)", "labelFont": "Montserrat", "titleFont": "Montserrat", "grid": false}
+    }
+  },
+  "layer": [
+    {
+      "mark": {"type": "bar", "tooltip": true, "cornerRadiusEnd": 4},
+      "encoding": {
+        "xOffset": {"field": "Alcohol Type"},
+        "color": {
+          "field": "Alcohol Type",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Regular strength beer", "Pre-mixed spirits", "Bottled wine"],
+            "range": ["#F59E0B", "#1F2937", "#991B1B"]
+          },
+          "legend": {"orient": "top", "title": null, "labelFont": "Montserrat"}
+        },
+        "tooltip": [
+          {"field": "Age Group", "type": "nominal"},
+          {"field": "Alcohol Type", "type": "nominal"},
+          {"field": "Percentage", "type": "quantitative", "format": ".1f", "title": "Preference %"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum['Age Group'] == '18–24' && datum['Alcohol Type'] == 'Regular strength beer'"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 5,
+        "dy": -15,
+        "font": "Oswald",
+        "fontSize": 14,
+        "color": "#F59E0B"
+      },
+      "encoding": {
+        "xOffset": {"field": "Alcohol Type"},
+        "text": {"value": "← Lowest Beer Preference"}
+      }
+    }
+  ],
+  "config": {"view": {"stroke": "transparent"}, "font": "Montserrat"}
+}

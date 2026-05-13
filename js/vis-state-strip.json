@@ -1,0 +1,51 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "title": {
+    "text": "Rank Density by State",
+    "subtitle": "Where do the best beers originate?",
+    "font": "Oswald",
+    "fontSize": 16,
+    "subtitleFont": "Montserrat",
+    "subtitleColor": "#64748B"
+  },
+  "data": {"url": "../H100-2024-PosterList.json"},
+  "transform": [
+    {"calculate": "random()", "as": "jitter"}
+  ],
+  "mark": {
+    "type": "circle",
+    "size": 70,
+    "opacity": 0.7,
+    "color": "#E8A317",
+    "stroke": "#1A202C",
+    "strokeWidth": 0.5
+  },
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "title": null,
+      "axis": {"labelFont": "Montserrat", "grid": true}
+    },
+    "x": {
+      "field": "rank",
+      "type": "quantitative",
+      "title": "GABS Rank (1 is Best)",
+      "axis": {"labelFont": "Montserrat", "titleFont": "Montserrat"}
+    },
+    "yOffset": {
+      "field": "jitter",
+      "type": "quantitative",
+      "scale": {"domain": [0, 1], "range": [-12, 12]}
+    },
+    "tooltip": [
+      {"field": "beer", "type": "nominal", "title": "Beer"},
+      {"field": "brewery", "type": "nominal", "title": "Brewery"},
+      {"field": "rank", "type": "quantitative", "title": "Rank"},
+      {"field": "style", "type": "nominal", "title": "Style"}
+    ]
+  },
+  "config": {"view": {"stroke": "transparent"}, "font": "Montserrat"}
+}

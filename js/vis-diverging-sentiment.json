@@ -1,0 +1,54 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "data": {
+    "url": "../H100-2024-PosterList.json"
+  },
+  "transform": [
+    {
+      "calculate": "indexof(datum.status, 'Up ') == 0 ? toNumber(substring(datum.status, 3)) : indexof(datum.status, 'Down ') == 0 ? -toNumber(substring(datum.status, 5)) : 0",
+      "as": "RankChange"
+    },
+    {"filter": "datum.RankChange != 0"},
+    {
+      "aggregate": [{"op": "sum", "field": "RankChange", "as": "NetRankChange"}],
+      "groupby": ["style"]
+    },
+    {
+      "calculate": "datum.NetRankChange > 0 ? 'Gaining Popularity' : 'Losing Momentum'",
+      "as": "Sentiment"
+    }
+  ],
+  "mark": {"type": "bar", "cornerRadiusEnd": 4},
+  "encoding": {
+    "y": {
+      "field": "style",
+      "type": "nominal",
+      "sort": {"field": "NetRankChange", "order": "descending"},
+      "axis": {"labelFont": "Montserrat", "title": null, "labelLimit": 150}
+    },
+    "x": {
+      "field": "NetRankChange",
+      "type": "quantitative",
+      "axis": {"labelFont": "Montserrat", "titleFont": "Montserrat", "title": "Net Ranks Gained / Lost"}
+    },
+    "color": {
+      "field": "Sentiment",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Gaining Popularity", "Losing Momentum"],
+        "range": ["#F59E0B", "#EF4444"]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {"field": "style", "type": "nominal", "title": "Style"},
+      {"field": "NetRankChange", "type": "quantitative", "title": "Net Rank Change"}
+    ]
+  },
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Montserrat"
+  }
+}

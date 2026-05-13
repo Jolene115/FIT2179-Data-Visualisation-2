@@ -1,0 +1,112 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "title": {
+    "text": "Rank Density by Style",
+    "subtitle": "Mapping the exact placement of every beer",
+    "font": "Oswald",
+    "fontSize": 20,
+    "subtitleFont": "Montserrat",
+    "subtitleColor": "#64748B"
+  },
+  "data": {"url": "../H100-2024-PosterList.json"},
+  "transform": [
+    {
+      "joinaggregate": [{"op": "count", "as": "StyleCount"}],
+      "groupby": ["style"]
+    },
+    {"filter": "datum.StyleCount >= 4"},
+    {
+      "calculate": "random()", "as": "jitter"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "style",
+      "type": "nominal",
+      "sort": {"field": "rank", "op": "median"},
+      "axis": {"labelFont": "Montserrat", "title": null, "labelLimit": 150}
+    },
+    "x": {
+      "field": "rank",
+      "type": "quantitative",
+      "title": "GABS Rank (1 is Best)",
+      "axis": {"labelFont": "Montserrat", "titleFont": "Montserrat"}
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "size": 100,
+        "opacity": 0.8,
+        "stroke": "#111",
+        "strokeWidth": 0.5
+      },
+      "encoding": {
+        "yOffset": {"field": "jitter", "type": "quantitative", "scale": {"range": [-10, 10]}},
+        "color": {
+          "field": "rank",
+          "type": "quantitative",
+          "scale": {"range": ["#B45309", "#FDE68A"]},
+          "legend": null
+        },
+        "tooltip": [
+          {"field": "beer", "type": "nominal", "title": "Beer"},
+          {"field": "brewery", "type": "nominal", "title": "Brewery"},
+          {"field": "rank", "type": "quantitative", "title": "Rank"}
+        ]
+      }
+    },
+    {
+      "transform": [{"filter": "datum.rank == 1"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "dy": -15,
+        "font": "Oswald",
+        "fontSize": 14,
+        "color": "#B45309"
+      },
+      "encoding": {
+        "text": {"value": "← #1: Status Quo (Hazy Pale)"}
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#7f8c8d",
+        "strokeDash": [4, 4],
+        "size": 1
+      },
+      "encoding": {
+        "x": {"datum": 50},
+        "y": null,
+        "tooltip": null
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": 5,
+        "dy": -180,
+        "font": "Montserrat",
+        "color": "#7f8c8d",
+        "fontSize": 12
+      },
+      "encoding": {
+        "x": {"datum": 50},
+        "y": null,
+        "text": {"value": "Overall Median Rank (50)"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": "transparent"},
+    "font": "Montserrat"
+  }
+}
