@@ -10,7 +10,7 @@
     "subtitleFont": "Montserrat",
     "subtitleColor": "#64748B"
   },
-  "data": {"url": "../gabs_hottest_100_2025.json"},
+  "data": {"url": "gabs_hottest_100_2025.json"},
   "transform": [
     {
       "aggregate": [{"op": "count", "as": "Count"}],

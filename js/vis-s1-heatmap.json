@@ -8,7 +8,7 @@
     "fontSize": 18
   },
   "data": {
-    "url": "../ndshs_alcohol_preferences_2022_2023.json"
+    "url": "ndshs_alcohol_preferences_2022_2023.json"
   },
   "transform": [
     {"filter": "datum.Gender == 'Persons'"},
