@@ -10,10 +10,14 @@
     "subtitleFont": "Montserrat",
     "subtitleColor": "#64748B"
   },
-  "data": {"url": "../H100-2024-PosterList.json"},
+  "data": {"url": "../gabs_hottest_100_2025.json"},
   "transform": [
     {
       "joinaggregate": [{"op": "count", "as": "StyleCount"}],
+      "groupby": ["style"]
+    },
+    {
+      "joinaggregate": [{"op": "median", "field": "rank", "as": "MedianRank"}],
       "groupby": ["style"]
     },
     {"filter": "datum.StyleCount >= 4"},
@@ -25,7 +29,7 @@
     "y": {
       "field": "style",
       "type": "nominal",
-      "sort": {"field": "rank", "op": "median"},
+      "sort": {"field": "MedianRank", "op": "min"},
       "axis": {"labelFont": "Montserrat", "title": null, "labelLimit": 150}
     },
     "x": {
@@ -55,6 +59,8 @@
         "tooltip": [
           {"field": "beer", "type": "nominal", "title": "Beer"},
           {"field": "brewery", "type": "nominal", "title": "Brewery"},
+          {"field": "style", "type": "nominal", "title": "Style"},
+          {"field": "MedianRank", "type": "quantitative", "format": ".1f", "title": "Style median rank"},
           {"field": "rank", "type": "quantitative", "title": "Rank"}
         ]
       }
@@ -75,16 +81,28 @@
       }
     },
     {
+      "transform": [
+        {
+          "aggregate": [
+            {"op": "median", "field": "rank", "as": "MedianRank"},
+            {"op": "count", "as": "StyleCount"}
+          ],
+          "groupby": ["style"]
+        },
+        {"filter": "datum.StyleCount >= 4"}
+      ],
       "mark": {
-        "type": "rule",
-        "color": "#7f8c8d",
-        "strokeDash": [4, 4],
-        "size": 1
+        "type": "tick",
+        "color": "#111111",
+        "thickness": 3,
+        "size": 28
       },
       "encoding": {
-        "x": {"datum": 50},
-        "y": null,
-        "tooltip": null
+        "x": {"field": "MedianRank", "type": "quantitative"},
+        "tooltip": [
+          {"field": "style", "type": "nominal", "title": "Style"},
+          {"field": "MedianRank", "type": "quantitative", "format": ".1f", "title": "Median rank"}
+        ]
       }
     },
     {
@@ -93,15 +111,15 @@
         "align": "left",
         "baseline": "bottom",
         "dx": 5,
-        "dy": -180,
+        "dy": -176,
         "font": "Montserrat",
-        "color": "#7f8c8d",
+        "color": "#111111",
         "fontSize": 12
       },
       "encoding": {
-        "x": {"datum": 50},
+        "x": {"datum": 42},
         "y": null,
-        "text": {"value": "Overall Median Rank (50)"}
+        "text": {"value": "Black ticks show each style's median rank"}
       }
     }
   ],

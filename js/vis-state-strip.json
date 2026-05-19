@@ -10,7 +10,7 @@
     "subtitleFont": "Montserrat",
     "subtitleColor": "#64748B"
   },
-  "data": {"url": "../H100-2024-PosterList.json"},
+  "data": {"url": "../gabs_hottest_100_2025.json"},
   "transform": [
     {"calculate": "random()", "as": "jitter"}
   ],
@@ -24,7 +24,7 @@
   },
   "encoding": {
     "y": {
-      "field": "state",
+      "field": "state_name",
       "type": "nominal",
       "title": null,
       "axis": {"labelFont": "Montserrat", "grid": true}
@@ -43,6 +43,7 @@
     "tooltip": [
       {"field": "beer", "type": "nominal", "title": "Beer"},
       {"field": "brewery", "type": "nominal", "title": "Brewery"},
+      {"field": "state_name", "type": "nominal", "title": "State"},
       {"field": "rank", "type": "quantitative", "title": "Rank"},
       {"field": "style", "type": "nominal", "title": "Style"}
     ]

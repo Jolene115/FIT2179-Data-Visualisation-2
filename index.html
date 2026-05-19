@@ -12,7 +12,7 @@
     <!-- True Pudding Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Oswald:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     
     <!-- Vega-Lite Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
@@ -25,12 +25,13 @@
 <body>
 
     <header>
+        <p class="kicker">FIT2179 Data Visualisation 2</p>
         <img src="malt_sketch_three.png" alt="Malt Sketch" class="hero-image">
         <h1>THE AUSTRALIAN CRAFT BEER REVOLUTION</h1>
-        <p class="byline">BY JING YI TEOH (JOLENE)</p>
+        <p class="byline">BY JING YI TEOH</p>
         
-        <p class="dek" style="margin-top: 4rem; max-width: 600px; margin-left: auto; margin-right: auto; text-align: left; font-size: 1.2rem; color: #444;">
-            An interactive analysis of the shifting palate from mass production to local diversity. Dive into the data of the GABS Hottest 100 to discover what truly drives Australia's modern drinking culture.
+        <p class="dek">
+            An interactive analysis of Australia's shifting palate: what the national drinking survey says we prefer, and what the GABS Hottest 100 2025 reveals about the beers Australians vote for.
         </p>
     </header>
 
@@ -56,6 +57,9 @@
                 <div class="pure-u-1">
                     <div id="vis-s1-stream" class="vis-container"></div>
                 </div>
+                <div class="pure-u-1" style="margin-top: 2rem;">
+                    <div id="vis-s1-heatmap" class="vis-container"></div>
+                </div>
             </div>
         </figure>
 
@@ -69,7 +73,7 @@
             <!-- The scrolling text steps -->
             <article class="scrolly-text">
                 <div class="step" data-step="['VIC', 'NSW']">
-                    <p><strong>Eastern Dominance.</strong> Victoria and NSW are the massive powerhouses in the Australian craft industry. Notice the dense clusters around Melbourne and Sydney.</p>
+                    <p><strong>Eastern Dominance.</strong> Victoria and New South Wales are the massive powerhouses in the Australian craft industry. Notice the dense clusters around Melbourne and Sydney.</p>
                 </div>
                 <div class="step" data-step="ALL">
                     <p><strong>Quality Over Quantity.</strong> Some states have fewer breweries but produce a massive number of top 100 beers. It's not just about how many breweries exist, but their impact.</p>
@@ -93,8 +97,9 @@
 
         <section class="prose">
             <h2>What Makes a "Hottest 100" Beer?</h2>
-            <p>Diving into the acclaimed GABS Hottest 100, we uncover the styles, strengths, and brewers that define the pinnacle of Australian craft brewing.</p>
+            <p>Diving into the acclaimed GABS Hottest 100, we uncover the styles, rank momentum, and brewers that define the pinnacle of Australian craft brewing.</p>
             <p>Pale Ales and IPAs completely dominate the landscape, showcasing Australia's distinct thirst for hoppy, aromatic profiles. The sheer volume of these styles demonstrates a clear market preference.</p>
+            <p>For the rank-density charts below, each dot is one beer. Smaller rank numbers are better, so dots further left are higher-performing beers. The black ticks mark the median rank for each style, giving a quick centre point without needing statistical jargon.</p>
         </section>
 
         <figure class="graphic-bleed">
@@ -109,6 +114,9 @@
                     <div id="vis-style-state-heatmap" class="vis-container"></div>
                 </div>
                 <div class="pure-u-1" style="margin-top: 2rem;">
+                    <div id="vis-state-strip" class="vis-container"></div>
+                </div>
+                <div class="pure-u-1" style="margin-top: 2rem;">
                     <div id="vis-bump-chart" class="vis-container"></div>
                 </div>
             </div>
@@ -118,7 +126,7 @@
             <div class="verdict-box">
                 <h2>The Final Verdict</h2>
                 <p>Synthesising the analysis of the Hottest 100 reveals the overall impact and a state-by-state breakdown.</p>
-                <p>Australia's palate is evolving. While national trends remain rooted in traditional wine and beer, the GABS 100 reveals a clear shift toward regional, independent diversity, driven by NSW and VIC. We are moving away from mass production toward a culture that values local innovation and "hazy" craft styles.</p>
+                <p>Australia's palate is evolving. While national trends remain rooted in traditional wine and beer, the GABS 100 reveals a clear shift toward regional, independent diversity, driven by New South Wales and Victoria. We are moving away from mass production toward a culture that values local innovation and "hazy" craft styles.</p>
                 <div class="pure-g" style="margin-top: 2rem;">
                     <div class="pure-u-1 pure-u-md-1-2">
                         <div style="text-align: center; margin-bottom: 1rem;">
@@ -135,7 +143,13 @@
                         <div id="vis-state-waffle" class="vis-container"></div>
                     </div>
                 </div>
-                <p style="font-size: 0.9rem; color: #888; font-family: var(--font-ui); text-transform: uppercase; margin-top: 1rem;">Data Sources: AIHW (2022-2023) | GABS Hottest 100 (2024)</p>
+                <p class="source-note">
+                    Author: Jing Yi Teoh, May 2026. Data sources:
+                    <a href="https://www.aihw.gov.au/reports/illicit-use-of-drugs/national-drug-strategy-household-survey/data?&page=1">AIHW National Drug Strategy Household Survey 2022-23</a>;
+                    <a href="https://gabshottest100.com/auresults/2025/">GABS Hottest 100 Australian Craft Beers 2025</a>;
+                    <a href="https://github.com/rowanhogan/australian-states/blob/master/states.geojson">Australian states GeoJSON by Rowan Hogan</a>.
+                    GABS brewery states and beer styles are structured from the official result list and public brewery/product classification.
+                </p>
             </div>
         </section>
 
@@ -154,6 +168,7 @@
         
         vegaEmbed('#vis-s1-bar', 'js/vis-s1-bar.json', opt).catch(console.error);
         vegaEmbed('#vis-s1-stream', 'js/vis-s1-stream.json', opt).catch(console.error);
+        vegaEmbed('#vis-s1-heatmap', 'js/vis-s1-heatmap.json', opt).catch(console.error);
         
         // --- SCROLLYTELLING LOGIC ---
         // 1. Capture the map view so we can send it signals
@@ -166,6 +181,7 @@
         vegaEmbed('#vis-style-treemap', 'js/vis-style-lollipop.json', opt).catch(console.error);
         vegaEmbed('#vis-abv-scatter', 'js/vis-style-boxplot.json', opt).catch(console.error);
         vegaEmbed('#vis-style-state-heatmap', 'js/vis-style-state-heatmap.json', opt).catch(console.error);
+        vegaEmbed('#vis-state-strip', 'js/vis-state-strip.json', opt).catch(console.error);
         vegaEmbed('#vis-bump-chart', 'js/vis-bump-chart.json', opt).catch(console.error);
         vegaEmbed('#vis-diverging-sentiment', 'js/vis-diverging-sentiment.json', opt).catch(console.error);
         vegaEmbed('#vis-state-waffle', 'js/vis-state-waffle.json', opt).catch(console.error);

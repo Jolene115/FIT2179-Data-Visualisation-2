@@ -3,16 +3,16 @@
   "width": "container",
   "height": 300,
   "data": {
-    "url": "../H100-2024-PosterList.json"
+    "url": "../gabs_hottest_100_2025.json"
   },
   "transform": [
     {
       "window": [{"op": "count", "as": "StateTotal"}],
-      "groupby": ["state"]
+      "groupby": ["state_name"]
     },
     {
       "window": [{"op": "row_number", "as": "id"}],
-      "sort": [{"field": "StateTotal", "order": "descending"}, {"field": "state"}]
+      "sort": [{"field": "StateTotal", "order": "descending"}, {"field": "state_name"}]
     },
     {
       "calculate": "floor((datum.id - 1) / 10)", "as": "row"
@@ -32,13 +32,16 @@
     "x": {"field": "col", "type": "ordinal", "axis": null},
     "y": {"field": "row", "type": "ordinal", "axis": null},
     "color": {
-      "field": "state", 
+      "field": "state_name",
       "type": "nominal", 
-      "scale": {"scheme": "yelloworangebrown"},
+      "scale": {
+        "domain": ["New South Wales", "Victoria", "Queensland", "Western Australia", "South Australia", "Australian Capital Territory"],
+        "range": ["#D97706", "#2563EB", "#16A34A", "#DC2626", "#7C3AED", "#0891B2"]
+      },
       "legend": {"title": null, "labelFont": "Montserrat", "orient": "right"}
     },
     "tooltip": [
-      {"field": "state", "type": "nominal", "title": "State"},
+      {"field": "state_name", "type": "nominal", "title": "State"},
       {"field": "beer", "type": "nominal", "title": "Beer"},
       {"field": "brewery", "type": "nominal", "title": "Brewery"}
     ]

@@ -1,0 +1,902 @@
+[
+  {
+    "rank": 1,
+    "status": "=",
+    "brewery": "Mountain Culture Beer Co",
+    "beer": "Status Quo",
+    "style": "Pale Ale - Hazy",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 2,
+    "status": "=",
+    "brewery": "Coopers Brewery",
+    "beer": "Original Pale Ale",
+    "style": "Pale Ale",
+    "state": "SA",
+    "state_name": "South Australia"
+  },
+  {
+    "rank": 3,
+    "status": "Up 2",
+    "brewery": "Gage Roads Brew Co",
+    "beer": "Single Fin Summer Ale",
+    "style": "Summer Ale",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 4,
+    "status": "=",
+    "brewery": "BentSpoke Brewing Co",
+    "beer": "Crankshaft",
+    "style": "IPA",
+    "state": "ACT",
+    "state_name": "Australian Capital Territory"
+  },
+  {
+    "rank": 5,
+    "status": "Up 3",
+    "brewery": "Philter",
+    "beer": "XPA",
+    "style": "XPA",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 6,
+    "status": "=",
+    "brewery": "Range Brewing",
+    "beer": "Disco",
+    "style": "Pale Ale - Hazy",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 7,
+    "status": "Down 4",
+    "brewery": "Balter Brewing",
+    "beer": "Balter XPA",
+    "style": "XPA",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 8,
+    "status": "Up 2",
+    "brewery": "One Drop Brewing Co",
+    "beer": "We Jammin’ – Smoothie Sour",
+    "style": "Smoothie Sour",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 9,
+    "status": "Up 13",
+    "brewery": "Beerfarm (Beer Farm)",
+    "beer": "Royal Haze",
+    "style": "Pale Ale - Hazy",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 10,
+    "status": "Up 9",
+    "brewery": "Seeker Brewing",
+    "beer": "Mystic",
+    "style": "Pale Ale - Hazy",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 11,
+    "status": "Up 1",
+    "brewery": "Young Henrys",
+    "beer": "Newtowner",
+    "style": "Pale Ale",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 12,
+    "status": "Up 2",
+    "brewery": "Blackflag Brewing",
+    "beer": "Rage Juicy Pale Ale",
+    "style": "Pale Ale",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 13,
+    "status": "Down 6",
+    "brewery": "Your Mates Brewing Co.",
+    "beer": "Larry",
+    "style": "Pale Ale",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 14,
+    "status": "Down 3",
+    "brewery": "Bridge Road Brewers",
+    "beer": "Beechworth Pale Ale",
+    "style": "Pale Ale",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 15,
+    "status": "Down 2",
+    "brewery": "Stone & Wood",
+    "beer": "Pacific Ale",
+    "style": "Pacific Ale",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 16,
+    "status": "Debut",
+    "brewery": "Mountain Culture Beer Co",
+    "beer": "Juice  Trip",
+    "style": "IPA - Hazy",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 17,
+    "status": "Up 16",
+    "brewery": "Balter Brewing",
+    "beer": "Eazy Hazy",
+    "style": "Pale Ale - Hazy",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 18,
+    "status": "Up 35",
+    "brewery": "Margaret River Beer Co",
+    "beer": "In The Pines",
+    "style": "Pale Ale",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 19,
+    "status": "Up 54",
+    "brewery": "Stomping Ground Brewing Co",
+    "beer": "Gipps St Pale Ale",
+    "style": "Pale Ale",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 20,
+    "status": "=",
+    "brewery": "Hawkers Beer",
+    "beer": "West Coast IPA",
+    "style": "West Coast IPA",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 21,
+    "status": "Down 6",
+    "brewery": "Pirate Life Brewing",
+    "beer": "South Coast Pale Ale",
+    "style": "Pale Ale",
+    "state": "SA",
+    "state_name": "South Australia"
+  },
+  {
+    "rank": 22,
+    "status": "Up 10",
+    "brewery": "Little Creatures",
+    "beer": "Pale Ale",
+    "style": "Pale Ale",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 23,
+    "status": "Down 14",
+    "brewery": "4 Pines Brewing Co",
+    "beer": "Japanese Lager",
+    "style": "Lager",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 24,
+    "status": "Down 8",
+    "brewery": "Rocky Ridge Brewing Co",
+    "beer": "Jindong Juicy",
+    "style": "IPA - Hazy",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 25,
+    "status": "=",
+    "brewery": "Black Hops",
+    "beer": "G.O.A.T.",
+    "style": "Pale Ale",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 26,
+    "status": "Debut",
+    "brewery": "Burleigh Brewing Co",
+    "beer": "Bighead No Carb Lager",
+    "style": "Lager",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 27,
+    "status": "Down 9",
+    "brewery": "Bright Brewery",
+    "beer": "Alpine Lager",
+    "style": "Lager",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 28,
+    "status": "Up 339",
+    "brewery": "Young Henrys",
+    "beer": "Classic Premium",
+    "style": "Lager",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 29,
+    "status": "Up 23",
+    "brewery": "Heaps Normal",
+    "beer": "Quiet XPA",
+    "style": "XPA",
+    "state": "ACT",
+    "state_name": "Australian Capital Territory"
+  },
+  {
+    "rank": 30,
+    "status": "Up 5",
+    "brewery": "Mountain Goat",
+    "beer": "GOAT Very Enjoyable Beer",
+    "style": "Lager",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 31,
+    "status": "Down 4",
+    "brewery": "Blackman’s Brewery",
+    "beer": "Juicy Banger IPL",
+    "style": "India Pale Lager",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 32,
+    "status": "Up 36",
+    "brewery": "Balter Brewing",
+    "beer": "Cerveza",
+    "style": "Lager",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 33,
+    "status": "Up 3",
+    "brewery": "10 Toes Brewing",
+    "beer": "Pipeline Pale Ale",
+    "style": "Pale Ale",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 34,
+    "status": "Up 37",
+    "brewery": "4 Pines Brewing Co",
+    "beer": "Pacific Ale",
+    "style": "Pacific Ale",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 35,
+    "status": "Down 14",
+    "brewery": "Akasha Brewing",
+    "beer": "Freshwater Pale Ale",
+    "style": "Pale Ale",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 36,
+    "status": "Up 10",
+    "brewery": "Shout Brewing Co",
+    "beer": "Mullet Pale Ale",
+    "style": "Pale Ale",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 37,
+    "status": "Down 20",
+    "brewery": "Capital Brewing Co",
+    "beer": "Coast Ale",
+    "style": "Pale Ale",
+    "state": "ACT",
+    "state_name": "Australian Capital Territory"
+  },
+  {
+    "rank": 38,
+    "status": "Up 10",
+    "brewery": "Bad Shepherd Brewing Co.",
+    "beer": "Peanut Butter Porter",
+    "style": "Porter",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 39,
+    "status": "Down 13",
+    "brewery": "Hop Nation Brewing Co.",
+    "beer": "J-Juice Hazy IPA",
+    "style": "IPA - Hazy",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 40,
+    "status": "Down 11",
+    "brewery": "Reckless Brewing Co",
+    "beer": "BX Lager",
+    "style": "Lager",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 41,
+    "status": "Debut",
+    "brewery": "Rocky Ridge Brewing Co",
+    "beer": "Cali IPA",
+    "style": "IPA",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 42,
+    "status": "Debut",
+    "brewery": "Shapeshifter Brewing Co.",
+    "beer": "Party Shirt",
+    "style": "Pale Ale",
+    "state": "SA",
+    "state_name": "South Australia"
+  },
+  {
+    "rank": 43,
+    "status": "Up 14",
+    "brewery": "Feral Brewing Co",
+    "beer": "Biggie",
+    "style": "IPA",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 44,
+    "status": "Down 10",
+    "brewery": "Coopers Brewery",
+    "beer": "Sparkling Ale",
+    "style": "Ale",
+    "state": "SA",
+    "state_name": "South Australia"
+  },
+  {
+    "rank": 45,
+    "status": "Up 45",
+    "brewery": "Pirate Life Brewing",
+    "beer": "Hazy XPA",
+    "style": "XPA - Hazy",
+    "state": "SA",
+    "state_name": "South Australia"
+  },
+  {
+    "rank": 46,
+    "status": "Down 23",
+    "brewery": "THE GRIFTER BREWING CO",
+    "beer": "Grifter Pale",
+    "style": "Pale Ale",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 47,
+    "status": "Down 19",
+    "brewery": "KAIJU! Beer",
+    "beer": "KRUSH! Tropical Pale Ale",
+    "style": "Pale Ale",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 48,
+    "status": "Up 8",
+    "brewery": "Green Beacon Brewing Co",
+    "beer": "Wayfarer Tropical Pale Ale",
+    "style": "Pale Ale",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 49,
+    "status": "Down 18",
+    "brewery": "Mountain Culture Beer Co",
+    "beer": "Cult IPA",
+    "style": "IPA",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 50,
+    "status": "Debut",
+    "brewery": "Blackflag Brewing",
+    "beer": "Affinity Pale Ale",
+    "style": "Pale Ale",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 51,
+    "status": "Down 8",
+    "brewery": "CBCo Brewing",
+    "beer": "CBCo Pale Ale",
+    "style": "Pale Ale",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 52,
+    "status": "Up 11",
+    "brewery": "Bridge Road Brewers",
+    "beer": "Bling IPA",
+    "style": "IPA",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 53,
+    "status": "Up 9",
+    "brewery": "Balter Brewing",
+    "beer": "Hazy IPA",
+    "style": "IPA - Hazy",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 54,
+    "status": "Down 12",
+    "brewery": "Range Brewing",
+    "beer": "Lights + Music",
+    "style": "IPA - Hazy",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 55,
+    "status": "Down 8",
+    "brewery": "Capital Brewing Co",
+    "beer": "Capital XPA",
+    "style": "XPA",
+    "state": "ACT",
+    "state_name": "Australian Capital Territory"
+  },
+  {
+    "rank": 56,
+    "status": "Debut",
+    "brewery": "Stone & Wood",
+    "beer": "Easy Pale Ale",
+    "style": "Pale Ale",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 57,
+    "status": "Up 138",
+    "brewery": "Co-Conspirators Brewing Company",
+    "beer": "The Matriarch New England IPA",
+    "style": "New England IPA",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 58,
+    "status": "Up 92",
+    "brewery": "Two Bays Brewing Co",
+    "beer": "Pale Ale",
+    "style": "Pale Ale",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 59,
+    "status": "Up 34",
+    "brewery": "BentSpoke Brewing Co",
+    "beer": "Sprocket",
+    "style": "IPA",
+    "state": "ACT",
+    "state_name": "Australian Capital Territory"
+  },
+  {
+    "rank": 60,
+    "status": "Up 21",
+    "brewery": "Gage Roads Brew Co",
+    "beer": "Hazy As",
+    "style": "Pale Ale - Hazy",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 61,
+    "status": "Up 39",
+    "brewery": "Bojak Brewing",
+    "beer": "Calypso",
+    "style": "Pale Ale",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 62,
+    "status": "Down 24",
+    "brewery": "Hiker Brewing Co",
+    "beer": "Horizon",
+    "style": "Pale Ale",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 63,
+    "status": "Up 48",
+    "brewery": "Bright Brewery",
+    "beer": "Bright Pale Ale",
+    "style": "Pale Ale",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 64,
+    "status": "Up 31",
+    "brewery": "Mountain Goat",
+    "beer": "Tasty Pale Ale",
+    "style": "Pale Ale",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 65,
+    "status": "Up 31",
+    "brewery": "Shelter Brewing Co",
+    "beer": "Hazy IPA",
+    "style": "IPA - Hazy",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 66,
+    "status": "Debut",
+    "brewery": "Bowden Brewing",
+    "beer": "Dive In – IPA",
+    "style": "IPA",
+    "state": "SA",
+    "state_name": "South Australia"
+  },
+  {
+    "rank": 67,
+    "status": "Down 28",
+    "brewery": "Bodriggy Brewing Co",
+    "beer": "Speccy Juice",
+    "style": "IPA - Hazy",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 68,
+    "status": "Up 125",
+    "brewery": "Willie the Boatman",
+    "beer": "Albo Pale Ale",
+    "style": "Pale Ale",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 69,
+    "status": "Up 19",
+    "brewery": "4 Pines Brewing Co",
+    "beer": "Hazy Pale Ale",
+    "style": "Pale Ale - Hazy",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 70,
+    "status": "Up 53",
+    "brewery": "Capital Brewing Co",
+    "beer": "Haze Oasis Pale Ale",
+    "style": "Pale Ale - Hazy",
+    "state": "ACT",
+    "state_name": "Australian Capital Territory"
+  },
+  {
+    "rank": 71,
+    "status": "Up 87",
+    "brewery": "Margaret River Beer Co",
+    "beer": "River Dog",
+    "style": "IPA",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 72,
+    "status": "=",
+    "brewery": "Black Hops",
+    "beer": "East Coast Haze",
+    "style": "Pale Ale - Hazy",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 73,
+    "status": "Up 4",
+    "brewery": "Wayward",
+    "beer": "Hazy Mid",
+    "style": "Mid - Hazy",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 74,
+    "status": "Up 51",
+    "brewery": "4 Pines Brewing Co",
+    "beer": "Pale Ale",
+    "style": "Pale Ale",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 75,
+    "status": "Debut",
+    "brewery": "Banks Brewing",
+    "beer": "Cake Eater – OCDIPA",
+    "style": "Double IPA",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 76,
+    "status": "Debut",
+    "brewery": "Slipstream Brewing Co",
+    "beer": "Laguna Pacific Ale",
+    "style": "Pacific Ale",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 77,
+    "status": "Down 10",
+    "brewery": "Coopers Brewery",
+    "beer": "Australian Lager",
+    "style": "Lager",
+    "state": "SA",
+    "state_name": "South Australia"
+  },
+  {
+    "rank": 78,
+    "status": "Up 14",
+    "brewery": "Lord Nelson Brewery Hotel",
+    "beer": "Three Sheets Australian Pale Ale",
+    "style": "Pale Ale",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 79,
+    "status": "Debut",
+    "brewery": "Good Land Brewing Co",
+    "beer": "Little Mate – Hazy Mid",
+    "style": "Mid - Hazy",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 80,
+    "status": "Return",
+    "brewery": "Range Brewing",
+    "beer": "Dripping In Green: Citra",
+    "style": "IPA - Hazy",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 81,
+    "status": "Up 4",
+    "brewery": "Feral Brewing Co",
+    "beer": "Hop Hog",
+    "style": "IPA",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 82,
+    "status": "Down 16",
+    "brewery": "Big Shed Brewing",
+    "beer": "Boozy Fruit",
+    "style": "Sour",
+    "state": "SA",
+    "state_name": "South Australia"
+  },
+  {
+    "rank": 83,
+    "status": "Up 159",
+    "brewery": "Young Henrys",
+    "beer": "Natural Lager",
+    "style": "Lager",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 84,
+    "status": "Up 253",
+    "brewery": "Reckless Brewing Co",
+    "beer": "Red IPA",
+    "style": "Red IPA",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 85,
+    "status": "Up 4",
+    "brewery": "Gage Roads Brew Co",
+    "beer": "Side Track All Day XPA",
+    "style": "XPA",
+    "state": "WA",
+    "state_name": "Western Australia"
+  },
+  {
+    "rank": 86,
+    "status": "Down 32",
+    "brewery": "Moffat Beach Brewing Co.",
+    "beer": "Passenger Pale Ale",
+    "style": "Pale Ale",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 87,
+    "status": "Down 22",
+    "brewery": "Brewmanity Beer Co",
+    "beer": "Mouth Of Melbourne",
+    "style": "Pale Ale",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 88,
+    "status": "Down 47",
+    "brewery": "Helios Brewing Company",
+    "beer": "Dionysus Oat Cream DIPA",
+    "style": "Double IPA",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 89,
+    "status": "Up 497",
+    "brewery": "SIX STRING BREWING CO",
+    "beer": "COASTIE LAGER",
+    "style": "Lager",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 90,
+    "status": "Up 19",
+    "brewery": "Coopers Brewery",
+    "beer": "Best Extra Stout",
+    "style": "Stout",
+    "state": "SA",
+    "state_name": "South Australia"
+  },
+  {
+    "rank": 91,
+    "status": "Down 5",
+    "brewery": "Dangerous ales",
+    "beer": "Crispy Boi Lager",
+    "style": "Lager",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 92,
+    "status": "Up 83",
+    "brewery": "Stomping Ground Brewing Co",
+    "beer": "Big Sky Hazy Pale",
+    "style": "Pale Ale - Hazy",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 93,
+    "status": "Debut",
+    "brewery": "Wolf of the Willows Brewing",
+    "beer": "PUP Hazy Pale Ale",
+    "style": "Pale Ale - Hazy",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 94,
+    "status": "Debut",
+    "brewery": "White Bay Brewery",
+    "beer": "Hazy – Australian Pale Ale",
+    "style": "Pale Ale - Hazy",
+    "state": "NSW",
+    "state_name": "New South Wales"
+  },
+  {
+    "rank": 95,
+    "status": "Down 1",
+    "brewery": "Burleigh Brewing Co",
+    "beer": "Twisted Palm",
+    "style": "Tropical Pale Ale",
+    "state": "QLD",
+    "state_name": "Queensland"
+  },
+  {
+    "rank": 96,
+    "status": "Debut",
+    "brewery": "Prancing Pony Brewery",
+    "beer": "Prancing Pony Double IPA",
+    "style": "Double IPA",
+    "state": "SA",
+    "state_name": "South Australia"
+  },
+  {
+    "rank": 97,
+    "status": "Down 17",
+    "brewery": "Hop Nation Brewing Co.",
+    "beer": "Rattenhund Classic Pilsner",
+    "style": "Pilsner",
+    "state": "VIC",
+    "state_name": "Victoria"
+  },
+  {
+    "rank": 98,
+    "status": "Down 28",
+    "brewery": "Coopers Brewery",
+    "beer": "XPA",
+    "style": "XPA",
+    "state": "SA",
+    "state_name": "South Australia"
+  },
+  {
+    "rank": 99,
+    "status": "Down 50",
+    "brewery": "BentSpoke Brewing Co",
+    "beer": "Barley Griffin",
+    "style": "Pale Ale",
+    "state": "ACT",
+    "state_name": "Australian Capital Territory"
+  },
+  {
+    "rank": 100,
+    "status": "Down 50",
+    "brewery": "Matso's Brewery",
+    "beer": "Mango Beer",
+    "style": "Fruit Beer",
+    "state": "WA",
+    "state_name": "Western Australia"
+  }
+]

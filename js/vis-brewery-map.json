@@ -4,7 +4,7 @@
   "height": 600,
   "title": {
     "text": "Brewery Activity and Hotspots",
-    "subtitle": "Number of Hottest 100 entries originating from each state",
+    "subtitle": "Hottest 100 entries by state; muted markers show states with no 2025 entries",
     "font": "Oswald",
     "fontSize": 20,
     "subtitleFont": "Montserrat",
@@ -35,22 +35,17 @@
     },
     {
       "data": {
-        "url": "../H100-2024-PosterList.json"
+        "values": [
+          {"state": "NSW", "state_name": "New South Wales", "BeerCount": 26, "BreweryCount": 17, "lon": 151.2, "lat": -33.86},
+          {"state": "VIC", "state_name": "Victoria", "BeerCount": 22, "BreweryCount": 17, "lon": 144.96, "lat": -37.81},
+          {"state": "QLD", "state_name": "Queensland", "BeerCount": 20, "BreweryCount": 12, "lon": 153.02, "lat": -27.47},
+          {"state": "WA", "state_name": "Western Australia", "BeerCount": 14, "BreweryCount": 9, "lon": 115.86, "lat": -31.95},
+          {"state": "SA", "state_name": "South Australia", "BeerCount": 11, "BreweryCount": 6, "lon": 138.6, "lat": -34.92},
+          {"state": "ACT", "state_name": "Australian Capital Territory", "BeerCount": 7, "BreweryCount": 3, "lon": 149.13, "lat": -35.28},
+          {"state": "TAS", "state_name": "Tasmania", "BeerCount": 0, "BreweryCount": 0, "lon": 147.32, "lat": -42.88},
+          {"state": "NT", "state_name": "Northern Territory", "BeerCount": 0, "BreweryCount": 0, "lon": 130.84, "lat": -12.46}
+        ]
       },
-      "transform": [
-        {
-          "aggregate": [{"op": "count", "as": "BeerCount"}],
-          "groupby": ["state"]
-        },
-        {
-          "calculate": "datum.state === 'NSW' ? 151.2 : datum.state === 'VIC' ? 144.96 : datum.state === 'QLD' ? 153.02 : datum.state === 'SA' ? 138.6 : datum.state === 'WA' ? 115.86 : datum.state === 'TAS' ? 147.32 : datum.state === 'ACT' ? 149.13 : 130.84",
-          "as": "lon"
-        },
-        {
-          "calculate": "datum.state === 'NSW' ? -33.86 : datum.state === 'VIC' ? -37.81 : datum.state === 'QLD' ? -27.47 : datum.state === 'SA' ? -34.92 : datum.state === 'WA' ? -31.95 : datum.state === 'TAS' ? -42.88 : datum.state === 'ACT' ? -35.28 : -12.46",
-          "as": "lat"
-        }
-      ],
       "mark": {
         "type": "circle",
         "stroke": "#1A202C",
@@ -63,63 +58,64 @@
         "size": {
           "field": "BeerCount",
           "type": "quantitative",
-          "scale": {"range": [100, 2000]},
-          "legend": {"title": "Number of Top Beers"}
+          "scale": {"domain": [0, 26], "range": [60, 2200]},
+          "legend": {"title": "Top 100 beers"}
         },
         "color": {
-          "condition": {
-            "test": "highlightState != null && indexof(highlightState, datum.state) >= 0",
-            "value": "#D97706"
-          },
+          "condition": [
+            {"test": "datum.BeerCount == 0", "value": "#94A3B8"},
+            {"test": "highlightState != null && indexof(highlightState, datum.state) >= 0", "value": "#D97706"}
+          ],
           "value": "#E8A317"
         },
         "opacity": {
-          "condition": {
-            "test": "highlightState != null && indexof(highlightState, datum.state) < 0",
-            "value": 0.15
-          },
+          "condition": [
+            {"test": "highlightState != null && indexof(highlightState, datum.state) < 0", "value": 0.15},
+            {"test": "datum.BeerCount == 0", "value": 0.45}
+          ],
           "value": 0.85
         },
         "tooltip": [
-          {"field": "state", "type": "nominal", "title": "State"},
-          {"field": "BeerCount", "type": "quantitative", "title": "Top Beers"}
+          {"field": "state_name", "type": "nominal", "title": "State"},
+          {"field": "BeerCount", "type": "quantitative", "title": "Top 100 beers"},
+          {"field": "BreweryCount", "type": "quantitative", "title": "Breweries represented"}
         ]
       }
     },
     {
       "data": {
-        "url": "../H100-2024-PosterList.json"
+        "values": [
+          {"state": "NSW", "state_name": "New South Wales", "BeerCount": 26, "lon": 151.2, "lat": -33.86},
+          {"state": "VIC", "state_name": "Victoria", "BeerCount": 22, "lon": 144.96, "lat": -37.81},
+          {"state": "QLD", "state_name": "Queensland", "BeerCount": 20, "lon": 153.02, "lat": -27.47},
+          {"state": "WA", "state_name": "Western Australia", "BeerCount": 14, "lon": 115.86, "lat": -31.95},
+          {"state": "SA", "state_name": "South Australia", "BeerCount": 11, "lon": 138.6, "lat": -34.92},
+          {"state": "ACT", "state_name": "Australian Capital Territory", "BeerCount": 7, "lon": 149.13, "lat": -35.28},
+          {"state": "TAS", "state_name": "Tasmania", "BeerCount": 0, "lon": 147.32, "lat": -42.88},
+          {"state": "NT", "state_name": "Northern Territory", "BeerCount": 0, "lon": 130.84, "lat": -12.46}
+        ]
       },
-      "transform": [
-        {
-          "aggregate": [{"op": "count", "as": "BeerCount"}],
-          "groupby": ["state"]
-        },
-        {
-          "calculate": "datum.state === 'NSW' ? 151.2 : datum.state === 'VIC' ? 144.96 : datum.state === 'QLD' ? 153.02 : datum.state === 'SA' ? 138.6 : datum.state === 'WA' ? 115.86 : datum.state === 'TAS' ? 147.32 : datum.state === 'ACT' ? 149.13 : 130.84",
-          "as": "lon"
-        },
-        {
-          "calculate": "datum.state === 'NSW' ? -33.86 : datum.state === 'VIC' ? -37.81 : datum.state === 'QLD' ? -27.47 : datum.state === 'SA' ? -34.92 : datum.state === 'WA' ? -31.95 : datum.state === 'TAS' ? -42.88 : datum.state === 'ACT' ? -35.28 : -12.46",
-          "as": "lat"
-        }
-      ],
       "mark": {
         "type": "text",
         "dy": -25,
         "font": "Montserrat",
         "fontWeight": "bold",
+        "fontSize": 10,
         "transition": true
       },
       "encoding": {
         "longitude": {"field": "lon", "type": "quantitative"},
         "latitude": {"field": "lat", "type": "quantitative"},
-        "text": {"field": "state", "type": "nominal"},
+        "text": {"field": "state_name", "type": "nominal"},
+        "color": {
+          "condition": {"test": "datum.BeerCount == 0", "value": "#64748B"},
+          "value": "#1F2937"
+        },
         "opacity": {
-          "condition": {
-            "test": "highlightState != null && indexof(highlightState, datum.state) < 0",
-            "value": 0.15
-          },
+          "condition": [
+            {"test": "highlightState != null && indexof(highlightState, datum.state) < 0", "value": 0.15},
+            {"test": "datum.BeerCount == 0", "value": 0.7}
+          ],
           "value": 1
         }
       }

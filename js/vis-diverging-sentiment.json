@@ -3,7 +3,7 @@
   "width": "container",
   "height": 400,
   "data": {
-    "url": "../H100-2024-PosterList.json"
+    "url": "../gabs_hottest_100_2025.json"
   },
   "transform": [
     {

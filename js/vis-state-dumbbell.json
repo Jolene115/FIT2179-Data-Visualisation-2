@@ -11,7 +11,7 @@
     "subtitleColor": "#64748B"
   },
   "data": {
-    "url": "../H100-2024-PosterList.json"
+    "url": "../gabs_hottest_100_2025.json"
   },
   "transform": [
     {
@@ -19,7 +19,7 @@
         {"op": "count", "as": "Total Beers"},
         {"op": "distinct", "field": "brewery", "as": "Unique Breweries"}
       ],
-      "groupby": ["state"]
+      "groupby": ["state_name"]
     },
     {
       "fold": ["Total Beers", "Unique Breweries"],
@@ -28,7 +28,7 @@
   ],
   "encoding": {
     "y": {
-      "field": "state",
+      "field": "state_name",
       "type": "nominal",
       "title": null,
       "sort": {"field": "Count", "op": "max", "order": "descending"},
@@ -55,7 +55,7 @@
     {
       "mark": {"type": "line", "color": "#CBD5E1", "strokeWidth": 4},
       "encoding": {
-        "detail": {"field": "state", "type": "nominal"}
+        "detail": {"field": "state_name", "type": "nominal"}
       }
     },
     {
@@ -75,7 +75,7 @@
           }
         },
         "tooltip": [
-          {"field": "state", "type": "nominal", "title": "State"},
+          {"field": "state_name", "type": "nominal", "title": "State"},
           {"field": "Metric", "type": "nominal", "title": "Metric"},
           {"field": "Count", "type": "quantitative", "title": "Count"}
         ]

@@ -38,31 +38,35 @@ h1, h2, h3, h4 {
 header {
     background-color: var(--header-bg);
     color: #111;
-    padding: 5vh 1rem 15vh 1rem;
+    padding: 4vh 1rem 11vh 1rem;
     text-align: center;
     border-bottom: 2px solid #eaeaea; /* Subtle border instead of heavy amber */
 }
 
+header .kicker,
 header .logo {
     font-family: var(--font-sans);
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: #3b342f;
 }
 
 header .hero-image {
-    max-width: 500px;
+    max-width: 460px;
     width: 100%;
     margin: 0 auto;
     display: block;
 }
 
 header h1 {
-    font-family: 'Amatic SC', var(--font-sans); /* Use a more drawn font if possible, fallback to sans */
-    font-size: 6rem;
+    font-family: 'Amatic SC', var(--font-sans);
+    font-size: clamp(4rem, 12vw, 8rem);
     color: #2a2238; /* Deep purple/charcoal like Wine & Math */
     margin: -2rem auto 0.5rem auto;
-    letter-spacing: 2px;
+    letter-spacing: 0;
+    max-width: 980px;
 }
 
 header p.subtitle {
@@ -83,6 +87,14 @@ header p.byline {
     border-bottom: 2px solid #D97706;
     display: inline-block;
     padding-bottom: 2px;
+}
+
+header .dek {
+    margin: 3rem auto 0 auto;
+    max-width: 660px;
+    text-align: left;
+    font-size: 1.2rem;
+    color: #444;
 }
 
 /* =========================================
@@ -215,6 +227,40 @@ figure.scrolly-figure {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.source-note {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-family: var(--font-ui);
+    text-transform: uppercase;
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
+.source-note a {
+    color: #7C2D12;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+@media (max-width: 720px) {
+    body {
+        font-size: 18px;
+    }
+
+    header {
+        padding-bottom: 7vh;
+    }
+
+    header h1 {
+        margin-top: -1rem;
+    }
+
+    header .dek {
+        font-size: 1rem;
+        text-align: center;
+    }
 }
 
 .interactive-cue {

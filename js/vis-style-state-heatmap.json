@@ -11,18 +11,18 @@
     "subtitleColor": "#64748B"
   },
   "data": {
-    "url": "../H100-2024-PosterList.json"
+    "url": "../gabs_hottest_100_2025.json"
   },
   "transform": [
     {
       "aggregate": [{"op": "count", "as": "BeerCount"}],
-      "groupby": ["state", "style"]
+      "groupby": ["state_name", "style"]
     }
   ],
   "mark": {"type": "rect", "tooltip": true, "cornerRadius": 2},
   "encoding": {
     "x": {
-      "field": "state",
+      "field": "state_name",
       "type": "nominal",
       "axis": {"labelFont": "Montserrat", "title": null, "labelAngle": 0}
     },
@@ -38,7 +38,7 @@
       "legend": {"title": "Top 100 Entries", "labelFont": "Montserrat", "orient": "right", "titleFont": "Montserrat"}
     },
     "tooltip": [
-      {"field": "state", "type": "nominal", "title": "State"},
+      {"field": "state_name", "type": "nominal", "title": "State"},
       {"field": "style", "type": "nominal", "title": "Style"},
       {"field": "BeerCount", "type": "quantitative", "title": "Number of Beers"}
     ]

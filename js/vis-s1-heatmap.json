@@ -36,7 +36,7 @@
     "x": {
       "field": "Age Group",
       "type": "nominal",
-      "axis": {"labelFont": "Montserrat", "title": null, "labelAngle": -45}
+      "axis": {"labelFont": "Montserrat", "title": null, "labelAngle": 0, "labelLimit": 95}
     },
     "y": {
       "field": "Alcohol Type",
