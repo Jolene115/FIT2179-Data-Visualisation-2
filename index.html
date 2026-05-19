@@ -165,26 +165,28 @@
                 view: {stroke: 'transparent'}
             }
         };
+        const chartVersion = '20260520-pathfix';
+        const chartSpec = (path) => `${path}?v=${chartVersion}`;
         
-        vegaEmbed('#vis-s1-bar', 'js/vis-s1-bar.json', opt).catch(console.error);
-        vegaEmbed('#vis-s1-stream', 'js/vis-s1-stream.json', opt).catch(console.error);
-        vegaEmbed('#vis-s1-heatmap', 'js/vis-s1-heatmap.json', opt).catch(console.error);
+        vegaEmbed('#vis-s1-bar', chartSpec('js/vis-s1-bar.json'), opt).catch(console.error);
+        vegaEmbed('#vis-s1-stream', chartSpec('js/vis-s1-stream.json'), opt).catch(console.error);
+        vegaEmbed('#vis-s1-heatmap', chartSpec('js/vis-s1-heatmap.json'), opt).catch(console.error);
         
         // --- SCROLLYTELLING LOGIC ---
         // 1. Capture the map view so we can send it signals
         let mapView;
-        vegaEmbed('#vis-brewery-map', 'js/vis-brewery-map.json', opt).then(function(result) {
+        vegaEmbed('#vis-brewery-map', chartSpec('js/vis-brewery-map.json'), opt).then(function(result) {
             mapView = result.view;
         }).catch(console.error);
 
-        vegaEmbed('#vis-state-bar', 'js/vis-state-dumbbell.json', opt).catch(console.error);
-        vegaEmbed('#vis-style-treemap', 'js/vis-style-lollipop.json', opt).catch(console.error);
-        vegaEmbed('#vis-abv-scatter', 'js/vis-style-boxplot.json', opt).catch(console.error);
-        vegaEmbed('#vis-style-state-heatmap', 'js/vis-style-state-heatmap.json', opt).catch(console.error);
-        vegaEmbed('#vis-state-strip', 'js/vis-state-strip.json', opt).catch(console.error);
-        vegaEmbed('#vis-bump-chart', 'js/vis-bump-chart.json', opt).catch(console.error);
-        vegaEmbed('#vis-diverging-sentiment', 'js/vis-diverging-sentiment.json', opt).catch(console.error);
-        vegaEmbed('#vis-state-waffle', 'js/vis-state-waffle.json', opt).catch(console.error);
+        vegaEmbed('#vis-state-bar', chartSpec('js/vis-state-dumbbell.json'), opt).catch(console.error);
+        vegaEmbed('#vis-style-treemap', chartSpec('js/vis-style-lollipop.json'), opt).catch(console.error);
+        vegaEmbed('#vis-abv-scatter', chartSpec('js/vis-style-boxplot.json'), opt).catch(console.error);
+        vegaEmbed('#vis-style-state-heatmap', chartSpec('js/vis-style-state-heatmap.json'), opt).catch(console.error);
+        vegaEmbed('#vis-state-strip', chartSpec('js/vis-state-strip.json'), opt).catch(console.error);
+        vegaEmbed('#vis-bump-chart', chartSpec('js/vis-bump-chart.json'), opt).catch(console.error);
+        vegaEmbed('#vis-diverging-sentiment', chartSpec('js/vis-diverging-sentiment.json'), opt).catch(console.error);
+        vegaEmbed('#vis-state-waffle', chartSpec('js/vis-state-waffle.json'), opt).catch(console.error);
 
         // 2. Setup IntersectionObserver
         const steps = document.querySelectorAll('.step');
