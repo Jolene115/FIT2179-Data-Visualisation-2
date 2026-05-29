@@ -1,14 +1,15 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 300,
+  "height": 320,
+  "padding": {"left": 5, "top": 5, "right": 165, "bottom": 5},
   "title": {
     "text": "The Anatomy of the Top 100",
     "subtitle": "Most popular beer styles by volume",
     "font": "Oswald",
     "fontSize": 20,
     "subtitleFont": "Montserrat",
-    "subtitleColor": "#64748B"
+    "subtitleColor": "#8A6B4C"
   },
   "data": {"url": "gabs_hottest_100_2025.json"},
   "transform": [
@@ -32,33 +33,69 @@
     "x": {
       "field": "Count",
       "type": "quantitative",
+      "scale": {"domain": [0, 42]},
       "axis": null
     }
   },
   "layer": [
     {
-      "mark": {"type": "bar", "cornerRadiusEnd": 4, "height": {"band": 0.8}},
+      "mark": {"type": "bar", "cornerRadiusEnd": 4, "height": {"band": 0.78}},
       "encoding": {
         "color": {
           "field": "Count",
           "type": "quantitative",
           "scale": {"range": ["#FDE68A", "#B45309"]},
           "legend": null
-        }
+        },
+        "tooltip": [
+          {"field": "style", "type": "nominal", "title": "Style"},
+          {"field": "Count", "type": "quantitative", "title": "Top 100 beers"}
+        ]
       }
     },
     {
-      "mark": {"type": "text", "align": "left", "dx": 5, "font": "Oswald", "fontSize": 14, "color": "#111"},
+      "mark": {"type": "text", "align": "left", "dx": 6, "font": "Oswald", "fontSize": 14, "color": "#111"},
       "encoding": {
         "x": {"datum": 0},
         "text": {"field": "style", "type": "nominal"}
       }
     },
     {
-      "mark": {"type": "text", "align": "right", "dx": -5, "font": "Montserrat", "fontWeight": "bold", "color": "#fff"},
+      "mark": {"type": "text", "align": "left", "dx": 6, "font": "Montserrat", "fontWeight": "bold", "color": "#7C2D12"},
       "encoding": {
         "x": {"field": "Count"},
         "text": {"field": "Count", "type": "quantitative"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.rank == 1"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 16,
+        "dy": -10,
+        "font": "Montserrat",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#7C2D12"
+      },
+      "encoding": {
+        "text": {"value": "Almost one-third of the list"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.style == 'IPA - Hazy'"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 16,
+        "dy": 16,
+        "font": "Montserrat",
+        "fontSize": 10,
+        "color": "#92400E"
+      },
+      "encoding": {
+        "text": {"value": "Hazy craft signature"}
       }
     }
   ],

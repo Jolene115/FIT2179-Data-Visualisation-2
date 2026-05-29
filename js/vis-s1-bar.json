@@ -2,13 +2,14 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": 400,
+  "padding": {"left": 5, "top": 5, "right": 190, "bottom": 5},
   "title": {
     "text": "The Generation Gap",
     "subtitle": "Alcohol preference by age group",
     "font": "Oswald",
     "fontSize": 20,
     "subtitleFont": "Montserrat",
-    "subtitleColor": "#64748B"
+    "subtitleColor": "#8A6B4C"
   },
   "data": {
     "url": "ndshs_alcohol_preferences_2022_2023.json"
@@ -25,29 +26,28 @@
   "encoding": {
     "x": {
       "field": "Age Group",
-      "type": "nominal",
+      "type": "ordinal",
       "axis": {"labelAngle": 0, "labelFont": "Montserrat", "title": null, "grid": false}
     },
     "y": {
       "field": "Percentage",
       "type": "quantitative",
-      "axis": {"title": "Preference (%)", "labelFont": "Montserrat", "titleFont": "Montserrat", "grid": false}
+      "axis": {"title": "Preference (%)", "labelFont": "Montserrat", "titleFont": "Montserrat", "grid": true, "gridColor": "#E5E7EB"}
+    },
+    "color": {
+      "field": "Alcohol Type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Regular strength beer", "Pre-mixed spirits", "Bottled wine"],
+        "range": ["#D97706", "#7C2D12", "#F59E0B"]
+      },
+      "legend": null
     }
   },
   "layer": [
     {
-      "mark": {"type": "bar", "tooltip": true, "cornerRadiusEnd": 4},
+      "mark": {"type": "line", "strokeWidth": 3, "point": {"filled": true, "size": 70}},
       "encoding": {
-        "xOffset": {"field": "Alcohol Type"},
-        "color": {
-          "field": "Alcohol Type",
-          "type": "nominal",
-          "scale": {
-            "domain": ["Regular strength beer", "Pre-mixed spirits", "Bottled wine"],
-            "range": ["#F59E0B", "#1F2937", "#991B1B"]
-          },
-          "legend": {"orient": "top", "title": null, "labelFont": "Montserrat"}
-        },
         "tooltip": [
           {"field": "Age Group", "type": "nominal"},
           {"field": "Alcohol Type", "type": "nominal"},
@@ -56,19 +56,25 @@
       }
     },
     {
+      "transform": [{"filter": "datum['Age Group'] == '70+'"}],
+      "mark": {"type": "text", "align": "left", "dx": 8, "font": "Montserrat", "fontWeight": "bold", "fontSize": 12},
+      "encoding": {
+        "text": {"field": "Alcohol Type", "type": "nominal"}
+      }
+    },
+    {
       "transform": [{"filter": "datum['Age Group'] == '18–24' && datum['Alcohol Type'] == 'Regular strength beer'"}],
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 5,
-        "dy": -15,
+        "dx": 8,
+        "dy": -16,
         "font": "Oswald",
         "fontSize": 14,
-        "color": "#F59E0B"
+        "color": "#D97706"
       },
       "encoding": {
-        "xOffset": {"field": "Alcohol Type"},
-        "text": {"value": "← Lowest Beer Preference"}
+        "text": {"value": "Beer preference is lowest among 18–24s"}
       }
     }
   ],

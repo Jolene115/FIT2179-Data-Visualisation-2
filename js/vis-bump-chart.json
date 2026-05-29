@@ -1,23 +1,21 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 800,
+  "height": 520,
   "title": {
     "text": "Consistency at the Top",
-    "subtitle": "Rank changes for the Top 20 beers from the previous poll to 2025",
+    "subtitle": "Top 20 in 2025 compared with the previous poll; ranks below 25 are clipped and annotated",
     "font": "Oswald",
     "fontSize": 20,
     "subtitleFont": "Montserrat",
-    "subtitleColor": "#64748B"
+    "subtitleColor": "#8A6B4C"
   },
   "data": {
     "url": "gabs_hottest_100_2025.json"
   },
   "transform": [
     {"filter": "datum.rank <= 20"},
-    {
-      "calculate": "datum.rank", "as": "Rank_2025"
-    },
+    {"calculate": "datum.rank", "as": "Rank_2025"},
     {
       "calculate": "datum.status == '=' ? datum.rank : indexof(datum.status, 'Up ') == 0 ? datum.rank + toNumber(substring(datum.status, 3)) : indexof(datum.status, 'Down ') == 0 ? datum.rank - toNumber(substring(datum.status, 5)) : null",
       "as": "Rank_2023"
@@ -28,8 +26,16 @@
       "as": ["YearField", "PlotRank"]
     },
     {
-      "calculate": "datum.YearField == 'Rank_2023' ? 'Previous' : '2025'",
+      "calculate": "datum.YearField == 'Rank_2023' ? 'Previous poll' : '2025'",
       "as": "Year"
+    },
+    {
+      "calculate": "datum.PlotRank > 25 ? 25 : datum.PlotRank",
+      "as": "PlotRankCapped"
+    },
+    {
+      "calculate": "'was #' + datum.PlotRank",
+      "as": "PreviousRankLabel"
     },
     {
       "calculate": "datum.Rank_2023 > datum.Rank_2025 ? 'Up' : datum.Rank_2023 < datum.Rank_2025 ? 'Down' : 'Same'",
@@ -40,54 +46,70 @@
     "x": {
       "field": "Year",
       "type": "ordinal",
+      "sort": ["Previous poll", "2025"],
       "axis": {"labelFont": "Montserrat", "title": null, "labelPadding": 10, "labelFontSize": 14}
     },
     "y": {
-      "field": "PlotRank",
+      "field": "PlotRankCapped",
       "type": "quantitative",
-      "scale": {"reverse": true},
-      "axis": {"labelFont": "Montserrat", "titleFont": "Montserrat", "title": "GABS Rank (1 is Best)", "grid": false}
+      "scale": {"domain": [1, 25], "reverse": true},
+      "axis": {"labelFont": "Montserrat", "titleFont": "Montserrat", "title": "GABS Rank (1 is best)", "grid": true, "gridColor": "#E5E7EB"}
     },
     "color": {
       "field": "Momentum",
       "type": "nominal",
       "scale": {
         "domain": ["Up", "Same", "Down"],
-        "range": ["#F59E0B", "#9CA3AF", "#EF4444"]
+        "range": ["#D97706", "#9CA3AF", "#7C2D12"]
       },
       "legend": null
     },
     "tooltip": [
       {"field": "beer", "type": "nominal", "title": "Beer"},
       {"field": "brewery", "type": "nominal", "title": "Brewery"},
-      {"field": "Rank_2023", "type": "quantitative", "title": "2023 Rank"},
-      {"field": "Rank_2025", "type": "quantitative", "title": "2025 Rank"}
+      {"field": "Rank_2023", "type": "quantitative", "title": "Previous rank"},
+      {"field": "Rank_2025", "type": "quantitative", "title": "2025 rank"}
     ]
   },
   "layer": [
     {
       "mark": {
         "type": "line",
-        "point": {"filled": true, "size": 60, "opacity": 1},
-        "strokeWidth": 3
+        "point": {"filled": true, "size": 55, "opacity": 1},
+        "strokeWidth": 2.5
       },
       "encoding": {
         "detail": {"field": "beer", "type": "nominal"}
       }
     },
     {
-      "transform": [{"filter": "datum.Year == '2025'"}],
+      "transform": [{"filter": "datum.Year == '2025' && datum.Rank_2025 <= 12"}],
       "mark": {
         "type": "text",
         "align": "left",
         "dx": 8,
         "font": "Montserrat",
         "fontWeight": "bold",
-        "fontSize": 11
+        "fontSize": 10
       },
       "encoding": {
         "text": {"field": "beer", "type": "nominal"},
-        "color": {"value": "#1F2937"}
+        "color": {"value": "#2F2720"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum.Year == 'Previous poll' && datum.PlotRank > 25"}],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -8,
+        "dy": 8,
+        "font": "Montserrat",
+        "fontSize": 10,
+        "color": "#7C2D12"
+      },
+      "encoding": {
+        "text": {"field": "PreviousRankLabel", "type": "nominal"}
       }
     }
   ],

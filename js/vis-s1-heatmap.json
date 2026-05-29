@@ -46,7 +46,7 @@
     "color": {
       "field": "Total_Percentage",
       "type": "quantitative",
-      "scale": {"scheme": "blues"},
+      "scale": {"range": ["#FEF3C7", "#F59E0B", "#7C2D12"]},
       "legend": {"title": "%", "labelFont": "Montserrat", "orient": "bottom"}
     },
     "tooltip": [

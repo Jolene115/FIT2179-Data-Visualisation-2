@@ -1,18 +1,24 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 400,
+  "height": 420,
   "title": {
     "text": "State by Style Matrix",
-    "subtitle": "Concentration of top beers across states",
+    "subtitle": "Click a beer style row to highlight it",
     "font": "Oswald",
     "fontSize": 20,
     "subtitleFont": "Montserrat",
-    "subtitleColor": "#64748B"
+    "subtitleColor": "#8A6B4C"
   },
   "data": {
     "url": "gabs_hottest_100_2025.json"
   },
+  "params": [
+    {
+      "name": "styleSelect",
+      "select": {"type": "point", "fields": ["style"], "on": "click", "clear": "dblclick"}
+    }
+  ],
   "transform": [
     {
       "aggregate": [{"op": "count", "as": "BeerCount"}],
@@ -34,8 +40,20 @@
     "color": {
       "field": "BeerCount",
       "type": "quantitative",
-      "scale": {"scheme": "yelloworangebrown"},
+      "scale": {"range": ["#FEF3C7", "#F59E0B", "#7C2D12"]},
       "legend": {"title": "Top 100 Entries", "labelFont": "Montserrat", "orient": "right", "titleFont": "Montserrat"}
+    },
+    "opacity": {
+      "condition": {"param": "styleSelect", "value": 1},
+      "value": 0.28
+    },
+    "stroke": {
+      "condition": {"param": "styleSelect", "value": "#111111"},
+      "value": "transparent"
+    },
+    "strokeWidth": {
+      "condition": {"param": "styleSelect", "value": 1.5},
+      "value": 0
     },
     "tooltip": [
       {"field": "state_name", "type": "nominal", "title": "State"},

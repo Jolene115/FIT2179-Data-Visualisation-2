@@ -8,7 +8,7 @@
     "font": "Oswald",
     "fontSize": 20,
     "subtitleFont": "Montserrat",
-    "subtitleColor": "#64748B"
+    "subtitleColor": "#8A6B4C"
   },
   "background": "transparent",
   "projection": {
@@ -28,7 +28,7 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#E2E8F0",
+        "fill": "#EFE7DB",
         "stroke": "#FFFFFF",
         "strokeWidth": 1.5
       }
@@ -59,11 +59,15 @@
           "field": "BeerCount",
           "type": "quantitative",
           "scale": {"domain": [0, 26], "range": [60, 2200]},
-          "legend": {"title": "Top 100 beers"}
+          "legend": {
+            "title": "Top 100 beers",
+            "values": [5, 15, 25],
+            "labelExpr": "datum.value == 5 ? 'small' : datum.value == 15 ? 'medium' : 'large'"
+          }
         },
         "color": {
           "condition": [
-            {"test": "datum.BeerCount == 0", "value": "#94A3B8"},
+            {"test": "datum.BeerCount == 0", "value": "#A8A29E"},
             {"test": "highlightState != null && indexof(highlightState, datum.state) >= 0", "value": "#D97706"}
           ],
           "value": "#E8A317"
@@ -108,8 +112,8 @@
         "latitude": {"field": "lat", "type": "quantitative"},
         "text": {"field": "state_name", "type": "nominal"},
         "color": {
-          "condition": {"test": "datum.BeerCount == 0", "value": "#64748B"},
-          "value": "#1F2937"
+          "condition": {"test": "datum.BeerCount == 0", "value": "#8A6B4C"},
+          "value": "#2F2720"
         },
         "opacity": {
           "condition": [

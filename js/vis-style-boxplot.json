@@ -8,7 +8,7 @@
     "font": "Oswald",
     "fontSize": 20,
     "subtitleFont": "Montserrat",
-    "subtitleColor": "#64748B"
+    "subtitleColor": "#8A6B4C"
   },
   "data": {"url": "gabs_hottest_100_2025.json"},
   "transform": [

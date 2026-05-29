@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 400,
+  "height": 360,
   "data": {
     "url": "gabs_hottest_100_2025.json"
   },
@@ -16,29 +16,38 @@
       "groupby": ["style"]
     },
     {
+      "calculate": "abs(datum.NetRankChange)",
+      "as": "AbsNetRankChange"
+    },
+    {
+      "window": [{"op": "rank", "as": "MoveRank"}],
+      "sort": [{"field": "AbsNetRankChange", "order": "descending"}]
+    },
+    {"filter": "datum.MoveRank <= 12"},
+    {
       "calculate": "datum.NetRankChange > 0 ? 'Gaining Popularity' : 'Losing Momentum'",
       "as": "Sentiment"
     }
   ],
   "mark": {"type": "bar", "cornerRadiusEnd": 4},
   "encoding": {
-    "y": {
+    "x": {
       "field": "style",
       "type": "nominal",
       "sort": {"field": "NetRankChange", "order": "descending"},
-      "axis": {"labelFont": "Montserrat", "title": null, "labelLimit": 150}
+      "axis": {"labelFont": "Montserrat", "title": null, "labelAngle": -30, "labelLimit": 80}
     },
-    "x": {
+    "y": {
       "field": "NetRankChange",
       "type": "quantitative",
-      "axis": {"labelFont": "Montserrat", "titleFont": "Montserrat", "title": "Net Ranks Gained / Lost"}
+      "axis": {"labelFont": "Montserrat", "titleFont": "Montserrat", "title": "Net ranks gained / lost", "gridColor": "#E5E7EB"}
     },
     "color": {
       "field": "Sentiment",
       "type": "nominal",
       "scale": {
         "domain": ["Gaining Popularity", "Losing Momentum"],
-        "range": ["#F59E0B", "#EF4444"]
+        "range": ["#D97706", "#7C2D12"]
       },
       "legend": null
     },

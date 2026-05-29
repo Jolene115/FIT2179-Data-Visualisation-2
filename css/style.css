@@ -150,9 +150,20 @@ article.scrolly-text {
 .step {
     margin: 0 auto 80vh auto;
     background-color: var(--bg-color); /* Matches page bg */
-    border: 1px solid #ddd;
+    border: 1px solid #E5D5BD;
+    border-left: 6px solid #D97706;
     padding: 2rem;
-    /* No heavy shadows, just clean stark borders */
+    opacity: 0.72;
+    transform: translateY(20px);
+    transition: opacity 0.35s ease, transform 0.35s ease, border-color 0.35s ease, background-color 0.35s ease;
+}
+
+.step.is-active {
+    opacity: 1;
+    transform: translateY(0);
+    border-color: #D97706;
+    background-color: #FFF8E8;
+    box-shadow: 0 10px 24px rgba(124, 45, 18, 0.08);
 }
 
 .step:last-child {
@@ -204,6 +215,10 @@ figure.scrolly-figure {
     .step {
         background-color: rgba(253, 252, 249, 0.95); /* Translucent so graphic shows through */
         margin-bottom: 60vh;
+    }
+
+    .step.is-active {
+        background-color: rgba(255, 248, 232, 0.97);
     }
 }
 
