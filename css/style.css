@@ -117,6 +117,43 @@ header .dek {
     margin-bottom: 2rem;
 }
 
+.stat-callout {
+    margin: 2rem 0;
+    padding: 1rem 1.25rem 1.15rem;
+    border-left: 6px solid var(--accent-color);
+    background: #FFF8E8;
+}
+
+.stat-number {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: clamp(3.6rem, 7vw, 5.2rem);
+    line-height: 0.9;
+    color: #7C2D12;
+}
+
+.stat-label {
+    display: block;
+    margin-top: 0.65rem;
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    font-weight: 600;
+    line-height: 1.45;
+    color: #4A3427;
+    text-transform: uppercase;
+}
+
+.chart-takeaway {
+    margin: 0 0 1rem;
+    text-align: center;
+    font-family: var(--font-ui);
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.45;
+    color: #7C2D12;
+    text-transform: uppercase;
+}
+
 .prose .dropcap::first-letter {
     font-family: var(--font-sans);
     font-size: 6rem;
@@ -228,7 +265,7 @@ figure.scrolly-figure {
 /* A wider container for non-scrolly charts that bleed past prose */
 .graphic-bleed {
     max-width: 1100px;
-    margin: 3rem auto;
+    margin: 4.5rem auto;
     padding: 0 1rem;
 }
 

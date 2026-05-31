@@ -4,7 +4,7 @@
   "height": 600,
   "title": {
     "text": "Brewery Activity and Hotspots",
-    "subtitle": "Hottest 100 entries by state; muted markers show states with no 2025 entries",
+    "subtitle": "Size and colour both show Hottest 100 entries; muted markers show states with no 2025 entries",
     "font": "Oswald",
     "fontSize": 20,
     "subtitleFont": "Montserrat",
@@ -70,7 +70,13 @@
             {"test": "datum.BeerCount == 0", "value": "#A8A29E"},
             {"test": "highlightState != null && indexof(highlightState, datum.state) >= 0", "value": "#D97706"}
           ],
-          "value": "#E8A317"
+          "field": "BeerCount",
+          "type": "quantitative",
+          "scale": {"domain": [0, 26], "range": ["#FDE68A", "#F59E0B", "#7C2D12"]},
+          "legend": {
+            "title": "Top 100 entries",
+            "gradientLength": 120
+          }
         },
         "opacity": {
           "condition": [
@@ -122,6 +128,28 @@
           ],
           "value": 1
         }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"label": "NSW: 26 top beers", "lon": 151.2, "lat": -32.55},
+          {"label": "Victoria: 22", "lon": 144.96, "lat": -36.55}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "font": "Oswald",
+        "fontSize": 15,
+        "color": "#7C2D12",
+        "dx": 18,
+        "dy": -6
+      },
+      "encoding": {
+        "longitude": {"field": "lon", "type": "quantitative"},
+        "latitude": {"field": "lat", "type": "quantitative"},
+        "text": {"field": "label", "type": "nominal"}
       }
     }
   ],

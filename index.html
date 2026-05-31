@@ -42,10 +42,15 @@
                 <div class="pure-u-1 pure-u-md-1-3" style="padding-right: 2rem;">
                     <h2>The National Palate</h2>
                     <p><span class="dropcap">B</span>efore exploring the niche world of craft beer, we must understand the broader Australian context.</p>
-                    <p>The 'Beer Gap' is most evident in the <strong>18–24 cohort</strong>, where preference sits at just <strong>16.1%</strong>, nearly half that of the <strong>45–54 demographic</strong>. This isn't just a lack of interest; it's a pivot toward variety.</p>
+                    <div class="stat-callout">
+                        <span class="stat-number">20.2%</span>
+                        <span class="stat-label">regular-strength beer preference among 18-24s, below the 30-39 peak of 23.3%.</span>
+                    </div>
+                    <p>The 'Beer Gap' is most evident in the <strong>18-24 cohort</strong>, where regular beer preference is already below its midlife peak while pre-mixed spirits remain much stronger. This isn't just a lack of interest; it's a pivot toward variety.</p>
                     <p>This 'Generation Gap' represents the primary growth engine for the Craft Revolution: a demographic that rejects commercial staples in favor of the diverse, innovative flavor profiles found in independent breweries.</p>
                 </div>
                 <div class="pure-u-1 pure-u-md-2-3">
+                    <p class="chart-takeaway">Takeaway: younger drinkers are less anchored to regular beer.</p>
                     <div id="vis-s1-bar" class="vis-container" style="width: 100%;"></div>
                 </div>
             </div>
@@ -165,7 +170,7 @@
                 view: {stroke: 'transparent'}
             }
         };
-        const chartVersion = '20260529-label-fix';
+        const chartVersion = '20260531-hd-polish';
         const chartSpec = (path) => `${path}?v=${chartVersion}`;
         
         vegaEmbed('#vis-s1-bar', chartSpec('js/vis-s1-bar.json'), opt).catch(console.error);

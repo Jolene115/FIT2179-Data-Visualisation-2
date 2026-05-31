@@ -1,10 +1,10 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
-  "height": 400,
+  "height": 440,
   "title": {
     "text": "Rank Density by Style",
-    "subtitle": "Mapping the exact placement of every beer",
+    "subtitle": "Top six styles only; hover for beer details",
     "font": "Oswald",
     "fontSize": 20,
     "subtitleFont": "Montserrat",
@@ -20,7 +20,7 @@
       "joinaggregate": [{"op": "median", "field": "rank", "as": "MedianRank"}],
       "groupby": ["style"]
     },
-    {"filter": "datum.StyleCount >= 4"},
+    {"filter": "indexof(['Pale Ale', 'Pale Ale - Hazy', 'Lager', 'IPA', 'IPA - Hazy', 'XPA'], datum.style) >= 0"},
     {
       "calculate": "random()", "as": "jitter"
     }
@@ -43,13 +43,13 @@
     {
       "mark": {
         "type": "circle",
-        "size": 100,
-        "opacity": 0.8,
+        "size": 72,
+        "opacity": 0.68,
         "stroke": "#111",
         "strokeWidth": 0.5
       },
       "encoding": {
-        "yOffset": {"field": "jitter", "type": "quantitative", "scale": {"range": [-10, 10]}},
+        "yOffset": {"field": "jitter", "type": "quantitative", "scale": {"range": [-15, 15]}},
         "color": {
           "field": "rank",
           "type": "quantitative",
@@ -89,7 +89,7 @@
           ],
           "groupby": ["style"]
         },
-        {"filter": "datum.StyleCount >= 4"}
+        {"filter": "indexof(['Pale Ale', 'Pale Ale - Hazy', 'Lager', 'IPA', 'IPA - Hazy', 'XPA'], datum.style) >= 0"}
       ],
       "mark": {
         "type": "tick",
@@ -106,20 +106,25 @@
       }
     },
     {
+      "data": {
+        "values": [
+          {"rank": 42, "style": "Lager", "label": "Black ticks show each top style's median rank"}
+        ]
+      },
       "mark": {
         "type": "text",
         "align": "left",
         "baseline": "bottom",
         "dx": 5,
-        "dy": -176,
+        "dy": -22,
         "font": "Montserrat",
         "color": "#111111",
         "fontSize": 12
       },
       "encoding": {
-        "x": {"datum": 42},
-        "y": null,
-        "text": {"value": "Black ticks show each style's median rank"}
+        "x": {"field": "rank", "type": "quantitative"},
+        "y": {"field": "style", "type": "nominal"},
+        "text": {"field": "label", "type": "nominal"}
       }
     }
   ],

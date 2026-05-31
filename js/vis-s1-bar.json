@@ -74,7 +74,22 @@
         "color": "#D97706"
       },
       "encoding": {
-        "text": {"value": "Beer preference is lowest among 18–24s"}
+        "text": {"value": "18–24: regular beer trails the midlife peak"}
+      }
+    },
+    {
+      "transform": [{"filter": "datum['Age Group'] == '30–39' && datum['Alcohol Type'] == 'Regular strength beer'"}],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 8,
+        "dy": -18,
+        "font": "Oswald",
+        "fontSize": 14,
+        "color": "#7C2D12"
+      },
+      "encoding": {
+        "text": {"value": "30–39: regular beer peak"}
       }
     }
   ],
