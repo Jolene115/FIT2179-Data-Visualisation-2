@@ -20,7 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=20260531-story-polish">
+    <link rel="stylesheet" href="css/style.css?v=20260531-final-polish">
 </head>
 <body>
 
@@ -47,7 +47,7 @@
                         <span class="stat-label">regular-strength beer preference among 18-24s, below the 30-39 peak of 23.3%.</span>
                     </div>
                     <p>The 'Beer Gap' is most evident in the <strong>18-24 cohort</strong>, where regular beer preference is already below its midlife peak while pre-mixed spirits remain much stronger. This isn't just a lack of interest; it's a pivot toward variety.</p>
-                    <p>This 'Generation Gap' represents the primary growth engine for the Craft Revolution: a demographic that rejects commercial staples in favor of the diverse, innovative flavor profiles found in independent breweries.</p>
+                    <p>This generation gap does not prove that every young drinker is moving to craft beer. It does, however, show why a story about variety, flavour and independent breweries matters inside Australia's broader drinking culture.</p>
                 </div>
                 <div class="pure-u-1 pure-u-md-2-3">
                     <p class="chart-takeaway">Takeaway: younger drinkers are less anchored to regular beer.</p>
@@ -76,7 +76,7 @@
 
         <section class="prose">
             <h2>Mapping the Heartland</h2>
-            <p>The craft beer revolution isn't evenly distributed. Geographic analysis shows distinct hotspots of brewing excellence across the country. The density of breweries tells a story of urban hubs and regional craft pioneers.</p>
+            <p>The craft beer vote is not evenly distributed. The map shows where GABS Hottest 100 entries are represented, not every brewery in Australia. This makes the comparison sharper: it highlights which states place the most beers inside the national craft-beer poll.</p>
         </section>
 
         <!-- The bespoke Scrollytelling implementation -->
@@ -84,10 +84,10 @@
             <!-- The scrolling text steps -->
             <article class="scrolly-text">
                 <div class="step" data-step="['VIC', 'NSW']">
-                    <p><strong>Eastern Dominance.</strong> Victoria and New South Wales are the massive powerhouses in the Australian craft industry. Notice the dense clusters around Melbourne and Sydney.</p>
+                    <p><strong>Eastern Dominance.</strong> New South Wales and Victoria place the most beers in the 2025 Hottest 100. The biggest circles mark the strongest state representation in this vote.</p>
                 </div>
                 <div class="step" data-step="ALL">
-                    <p><strong>Quality Over Quantity.</strong> Some states have fewer breweries but produce a massive number of top 100 beers. It's not just about how many breweries exist, but their impact.</p>
+                    <p><strong>Quality Over Quantity.</strong> The dumbbell chart below separates total beer entries from unique breweries, showing whether a state's result comes from many producers or repeated success by fewer breweries.</p>
                 </div>
             </article>
             
@@ -108,8 +108,8 @@
 
         <section class="prose">
             <h2>What Makes a "Hottest 100" Beer?</h2>
-            <p>Diving into the acclaimed GABS Hottest 100, we uncover the styles, rank momentum, and brewers that define the pinnacle of Australian craft brewing.</p>
-            <p>Pale Ales and IPAs completely dominate the landscape, showcasing Australia's distinct thirst for hoppy, aromatic profiles. The sheer volume of these styles demonstrates a clear market preference.</p>
+            <p>Diving into the GABS Hottest 100, we can see the styles, rank movement and brewers that shape Australia's public craft-beer vote.</p>
+            <p>Pale ales and IPAs dominate the list, showing how strongly the craft audience rewards hoppy, aromatic styles. The volume of these styles is a pattern in the vote, not a claim about all alcohol consumption.</p>
             <p class="insight-callout">Main finding: pale ales and IPAs are not just common; they define the centre of the Hottest 100 craft beer story.</p>
             <p>For the rank-density charts below, each dot is one beer. Smaller rank numbers are better, so dots further left are higher-performing beers. The black ticks mark the median rank for each style, giving a quick centre point without needing statistical jargon.</p>
         </section>
@@ -138,7 +138,8 @@
             <div class="verdict-box">
                 <h2>The Final Verdict</h2>
                 <p>Synthesising the analysis of the Hottest 100 reveals the overall impact and a state-by-state breakdown.</p>
-                <p>Australia's palate is evolving. While national trends remain rooted in traditional wine and beer, the GABS 100 reveals a clear shift toward regional, independent diversity, driven by New South Wales and Victoria. We are moving away from mass production toward a culture that values local innovation and "hazy" craft styles.</p>
+                <p>Australia's palate is layered. AIHW shows the national context: beer competes with wine, spirits and pre-mixed drinks across age groups. GABS then reveals a more specialised craft-beer audience, where regional producers and hazy, hop-forward styles carry the strongest voting energy.</p>
+                <p class="method-note"><strong>Interpretation note.</strong> GABS is a consumer-voted craft beer poll, so it should be read as a measure of craft-beer enthusiasm rather than a complete picture of national alcohol consumption.</p>
                 <div class="pure-g" style="margin-top: 2rem;">
                     <div class="pure-u-1 pure-u-md-1-2">
                         <div style="text-align: center; margin-bottom: 1rem;">
@@ -160,7 +161,7 @@
                     <a href="https://www.aihw.gov.au/reports/illicit-use-of-drugs/national-drug-strategy-household-survey/data?&page=1">AIHW National Drug Strategy Household Survey 2022-23</a>;
                     <a href="https://gabshottest100.com/auresults/2025/">GABS Hottest 100 Australian Craft Beers 2025</a>;
                     <a href="https://github.com/rowanhogan/australian-states/blob/master/states.geojson">Australian states GeoJSON by Rowan Hogan</a>.
-                    GABS brewery states and beer styles are structured from the official result list and public brewery/product classification.
+                    GABS brewery states and beer styles are structured from the official result list and public brewery/product classification. AI tools were used to assist with the hero illustration and minor text refinement; all charts were authored in Vega-Lite.
                 </p>
             </div>
         </section>
@@ -177,7 +178,7 @@
                 view: {stroke: 'transparent'}
             }
         };
-        const chartVersion = '20260531-story-polish';
+        const chartVersion = '20260531-final-polish';
         const chartSpec = (path) => `${path}?v=${chartVersion}`;
         
         vegaEmbed('#vis-s1-bar', chartSpec('js/vis-s1-bar.json'), opt).catch(console.error);

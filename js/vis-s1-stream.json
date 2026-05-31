@@ -69,7 +69,7 @@
       "encoding": {
         "x": {"field": "Age Group", "type": "nominal"},
         "y": {"datum": 0.8, "type": "quantitative"},
-        "text": {"value": "Pre-mixed Spirits dominate Youth"}
+        "text": {"value": "Pre-mixed spirits lead among younger drinkers"}
       }
     },
     {

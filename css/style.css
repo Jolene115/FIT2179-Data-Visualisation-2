@@ -173,7 +173,8 @@ header .dek {
 }
 
 .bridge-summary,
-.insight-callout {
+.insight-callout,
+.method-note {
     padding: 1rem 1.25rem;
     border-left: 6px solid #D97706;
     background: #FFF8E8;
@@ -186,6 +187,11 @@ header .dek {
 
 .insight-callout {
     margin: 1.5rem 0 2rem;
+}
+
+.method-note {
+    margin: 1.25rem 0 2rem;
+    border-left-color: #7C2D12;
 }
 
 .prose .dropcap::first-letter {
@@ -319,7 +325,6 @@ figure.scrolly-figure {
     font-size: 0.85rem;
     color: #6b7280;
     font-family: var(--font-ui);
-    text-transform: uppercase;
     line-height: 1.5;
     margin-top: 1rem;
 }

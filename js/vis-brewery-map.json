@@ -3,7 +3,7 @@
   "width": "container",
   "height": 600,
   "title": {
-    "text": "Brewery Activity and Hotspots",
+    "text": "Hottest 100 Entry Hotspots",
     "subtitle": "Size and colour both show Hottest 100 entries; muted markers show states with no 2025 entries",
     "font": "Oswald",
     "fontSize": 20,
@@ -60,7 +60,7 @@
           "type": "quantitative",
           "scale": {"domain": [0, 26], "range": [60, 2200]},
           "legend": {
-            "title": "Top 100 beers",
+            "title": "Hottest 100 entries",
             "values": [5, 15, 25],
             "labelExpr": "datum.value == 5 ? 'small' : datum.value == 15 ? 'medium' : 'large'"
           }
@@ -87,7 +87,7 @@
         },
         "tooltip": [
           {"field": "state_name", "type": "nominal", "title": "State"},
-          {"field": "BeerCount", "type": "quantitative", "title": "Top 100 beers"},
+          {"field": "BeerCount", "type": "quantitative", "title": "Hottest 100 entries"},
           {"field": "BreweryCount", "type": "quantitative", "title": "Breweries represented"}
         ]
       }
