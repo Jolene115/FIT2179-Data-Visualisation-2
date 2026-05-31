@@ -20,7 +20,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css?v=20260531-hd-polish">
+    <link rel="stylesheet" href="css/style.css?v=20260531-story-polish">
 </head>
 <body>
 
@@ -68,6 +68,12 @@
             </div>
         </figure>
 
+        <section class="prose story-bridge">
+            <p class="bridge-kicker">Why move from AIHW to GABS?</p>
+            <p>The national survey shows the broad drinking context: regular beer is only one part of Australia's alcohol palate. The GABS Hottest 100 then zooms into the people actively voting for craft beer, revealing where that interest concentrates and which styles turn general beer drinking into a craft culture.</p>
+            <p class="bridge-summary">In short: AIHW explains the wider market, while GABS shows the craft-beer audience inside it.</p>
+        </section>
+
         <section class="prose">
             <h2>Mapping the Heartland</h2>
             <p>The craft beer revolution isn't evenly distributed. Geographic analysis shows distinct hotspots of brewing excellence across the country. The density of breweries tells a story of urban hubs and regional craft pioneers.</p>
@@ -104,6 +110,7 @@
             <h2>What Makes a "Hottest 100" Beer?</h2>
             <p>Diving into the acclaimed GABS Hottest 100, we uncover the styles, rank momentum, and brewers that define the pinnacle of Australian craft brewing.</p>
             <p>Pale Ales and IPAs completely dominate the landscape, showcasing Australia's distinct thirst for hoppy, aromatic profiles. The sheer volume of these styles demonstrates a clear market preference.</p>
+            <p class="insight-callout">Main finding: pale ales and IPAs are not just common; they define the centre of the Hottest 100 craft beer story.</p>
             <p>For the rank-density charts below, each dot is one beer. Smaller rank numbers are better, so dots further left are higher-performing beers. The black ticks mark the median rank for each style, giving a quick centre point without needing statistical jargon.</p>
         </section>
 
@@ -170,7 +177,7 @@
                 view: {stroke: 'transparent'}
             }
         };
-        const chartVersion = '20260531-hd-polish';
+        const chartVersion = '20260531-story-polish';
         const chartSpec = (path) => `${path}?v=${chartVersion}`;
         
         vegaEmbed('#vis-s1-bar', chartSpec('js/vis-s1-bar.json'), opt).catch(console.error);

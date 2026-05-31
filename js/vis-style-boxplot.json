@@ -108,7 +108,8 @@
     {
       "data": {
         "values": [
-          {"rank": 42, "style": "Lager", "label": "Black ticks show each top style's median rank"}
+          {"rank": 38, "style": "Lager", "label": "Lower rank = more popular"},
+          {"rank": 38, "style": "XPA", "label": "Black tick = middle ranking for that style"}
         ]
       },
       "mark": {
@@ -116,7 +117,7 @@
         "align": "left",
         "baseline": "bottom",
         "dx": 5,
-        "dy": -22,
+        "dy": -18,
         "font": "Montserrat",
         "color": "#111111",
         "fontSize": 12

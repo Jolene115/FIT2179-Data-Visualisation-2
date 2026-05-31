@@ -154,6 +154,40 @@ header .dek {
     text-transform: uppercase;
 }
 
+.story-bridge {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-top: 3px solid #D97706;
+    border-bottom: 1px solid #E5D5BD;
+}
+
+.bridge-kicker {
+    margin-bottom: 0.75rem !important;
+    font-family: var(--font-sans);
+    font-size: 1.45rem;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: #7C2D12;
+}
+
+.bridge-summary,
+.insight-callout {
+    padding: 1rem 1.25rem;
+    border-left: 6px solid #D97706;
+    background: #FFF8E8;
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.55;
+    color: #4A3427;
+}
+
+.insight-callout {
+    margin: 1.5rem 0 2rem;
+}
+
 .prose .dropcap::first-letter {
     font-family: var(--font-sans);
     font-size: 6rem;
